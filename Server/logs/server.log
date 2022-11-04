@@ -1,0 +1,96 @@
+error: Oct-02-2022 22:48:03: 	POST: Login | Error: connect ETIMEDOUT 15.207.229.46:5432
+error: Oct-02-2022 22:48:21: 	POST: Login | Error: connect ETIMEDOUT 15.207.229.46:5432
+error: Oct-02-2022 22:48:27: 	POST: Login | Error: connect ETIMEDOUT 15.207.229.46:5432
+error: Oct-02-2022 22:48:27: 	POST: Login | Error: connect ETIMEDOUT 15.207.229.46:5432
+error: Oct-02-2022 22:48:27: 	POST: Login | Error: connect ETIMEDOUT 15.207.229.46:5432
+error: Oct-02-2022 22:48:28: 	POST: Login | Error: connect ETIMEDOUT 15.207.229.46:5432
+error: Oct-02-2022 22:55:53: 	POST: Login | Error: connect ETIMEDOUT 15.207.229.46:5432
+error: Oct-02-2022 23:05:18: 	POST: Login | Error: connect ETIMEDOUT 15.207.229.46:5432
+error: Oct-02-2022 23:15:53: 	POST: Login | Error: connect ETIMEDOUT 15.207.229.46:5432
+error: Oct-06-2022 20:08:36: 	POST: Login | User tried to login with email - (jai_s@me.iitr.ac.in) which doesn't exist.
+error: Oct-06-2022 20:08:54: 	POST: User validation failed. (JWT Token is expired)
+error: Oct-06-2022 22:06:52: 	GET: Failed to fetch all users | user_id: 1 | TypeError: logger.success is not a function
+error: Oct-06-2022 22:07:14: 	GET: Failed to fetch all users | user_id: 1 | TypeError: logger.success is not a function
+error: Oct-06-2022 22:07:26: 	GET: Failed to fetch all users | user_id: 1 | TypeError: logger.success is not a function
+error: Oct-06-2022 22:08:01: 	GET: Failed to fetch all users | user_id: 1 | TypeError: logger.success is not a function
+info: Oct-07-2022 02:11:32: 	PUT: Edit user details | by user_id: 1
+info: Oct-07-2022 02:11:37: 	PUT: Edit user details | by user_id: 1
+info: Oct-07-2022 02:11:41: 	PUT: Edit user details | by user_id: 1
+info: Oct-07-2022 02:11:44: 	PUT: Edit user details | by user_id: 1
+info: Oct-07-2022 02:11:48: 	PUT: Edit user details | by user_id: 1
+info: Oct-07-2022 02:11:52: 	PUT: Edit user details | by user_id: 1
+info: Oct-07-2022 02:12:04: 	PUT: Edit user details | by user_id: 1
+info: Oct-07-2022 02:12:22: 	PUT: Edit user details | by user_id: 1
+info: Oct-07-2022 02:12:22: 	PUT: Edit user details | by user_id: 1
+info: Oct-07-2022 02:12:23: 	PUT: Edit user details | by user_id: 1
+info: Oct-07-2022 02:12:25: 	PUT: Edit user details | by user_id: 1
+info: Oct-07-2022 02:13:29: 	PUT: Edit user details | by user_id: 1
+info: Oct-07-2022 02:14:28: 	PUT: Edit user details | by user_id: 1
+error: Oct-07-2022 02:54:02: 	POST: Failed to add partner | user_id: 1 | TypeError: logger.success is not a function
+error: Oct-07-2022 02:54:20: 	POST: Failed to add partner | user_id: 1 | TypeError: logger.success is not a function
+info: Oct-07-2022 02:55:00: 	DELETE : Deleted Partner successfully| user_id: 1 | partner_id: 1
+info: Oct-07-2022 02:55:09: 	DELETE : Deleted Partner successfully| user_id: 1 | partner_id: 3
+error: Oct-07-2022 02:55:33: 	PUT: Failed to edit partner | user_id: 1 | partner_id: 2 | error: null value in column "PA_PAT_ID" of relation "Partner" violates not-null constraint
+error: Oct-07-2022 02:55:35: 	PUT: Failed to edit partner | user_id: 1 | partner_id: 2 | error: null value in column "PA_PAT_ID" of relation "Partner" violates not-null constraint
+error: Oct-07-2022 02:55:51: 	PUT: Failed to edit partner | user_id: 1 | partner_id: 2 | error: null value in column "PA_PAT_ID" of relation "Partner" violates not-null constraint
+error: Oct-07-2022 14:01:37: 	POST: Failed to add project | user_id: 1 | error: column "PR_ConcernPersonName" of relation "Project" does not exist
+error: Oct-07-2022 14:01:45: 	POST: Failed to add project | user_id: 1 | error: column "PR_ConcernPersonName" of relation "Project" does not exist
+error: Oct-07-2022 14:02:16: 	POST: Failed to add project | user_id: 1 | error: column "PR_ConcernPersonName" of relation "Project" does not exist
+error: Oct-07-2022 14:02:34: 	POST: Failed to add project | user_id: 1 | error: column "PR_ConcernPersonName" of relation "Project" does not exist
+error: Oct-07-2022 14:02:34: 	POST: Failed to add project | user_id: 1 | error: column "PR_ConcernPersonName" of relation "Project" does not exist
+error: Oct-07-2022 14:03:26: 	POST: Failed to add project | user_id: 1 | error: column "PR_ConcernPersonName" of relation "Project" does not exist
+error: Oct-07-2022 14:03:43: 	POST: Failed to add project | user_id: 1 | error: column "PR_ConcernPersonName" of relation "Project" does not exist
+error: Oct-07-2022 23:31:23: 	POST: Login | User tried to login with email (jai_s@me.iitr.ac.in) with wrong password.
+info: Oct-07-2022 23:36:20: 	DELETE : Deleted Project successfully | user_id: 1 | project_id: 2
+info: Oct-07-2022 23:48:18: 	PUT: Edit user details | by user_id: 1
+info: Oct-07-2022 23:48:23: 	PUT: Edit user details | by user_id: 1
+info: Oct-07-2022 23:52:35: 	PUT: Edit user details | by user_id: 1
+info: Oct-07-2022 23:52:40: 	PUT: Edit user details | by user_id: 1
+info: Oct-07-2022 23:52:51: 	PUT: Edit user details | by user_id: 1
+info: Oct-07-2022 23:52:59: 	PUT: Edit user details | by user_id: 1
+error: Oct-10-2022 19:09:46: 	POST: Failed to add expense | user_id: 1 | error: INSERT has more target columns than expressions
+error: Oct-11-2022 01:58:43: 	POST: Failed to add expense | user_id: 1 | error: INSERT has more target columns than expressions
+error: Oct-11-2022 01:59:27: 	POST: Failed to add expense | user_id: 1 | error: INSERT has more target columns than expressions
+error: Oct-11-2022 02:03:07: 	POST: Failed to add expense | user_id: 1 | error: INSERT has more target columns than expressions
+error: Oct-11-2022 02:03:08: 	POST: Failed to add expense | user_id: 1 | error: INSERT has more target columns than expressions
+error: Oct-11-2022 02:03:08: 	POST: Failed to add expense | user_id: 1 | error: INSERT has more target columns than expressions
+error: Oct-11-2022 02:36:00: 	POST: Failed to add expense | user_id: 1 | error: column "E_TypeOfExpense" of relation "Expense" does not exist
+error: Oct-11-2022 02:36:37: 	POST: Failed to add expense | user_id: 1 | error: column "E_TypeOfExpense" of relation "Expense" does not exist
+error: Oct-11-2022 02:37:54: 	POST: Failed to add expense | user_id: 1 | error: column "E_TypeOfExpense" of relation "Expense" does not exist
+error: Oct-11-2022 04:13:10: 	GET: Failed to fetch all expenses | user_id: 1 | error: column Expense.PA_ID does not exist
+error: Oct-11-2022 04:13:17: 	GET: Failed to fetch all expenses | user_id: 1 | error: column Expense.PA_ID does not exist
+error: Oct-11-2022 04:13:17: 	GET: Failed to fetch all expenses | user_id: 1 | error: column Expense.PA_ID does not exist
+error: Oct-11-2022 04:13:17: 	GET: Failed to fetch all expenses | user_id: 1 | error: column Expense.PA_ID does not exist
+error: Oct-11-2022 04:13:18: 	GET: Failed to fetch all expenses | user_id: 1 | error: column Expense.PA_ID does not exist
+error: Oct-11-2022 04:13:18: 	GET: Failed to fetch all expenses | user_id: 1 | error: column Expense.PA_ID does not exist
+error: Oct-11-2022 04:13:18: 	GET: Failed to fetch all expenses | user_id: 1 | error: column Expense.PA_ID does not exist
+error: Oct-11-2022 04:13:18: 	GET: Failed to fetch all expenses | user_id: 1 | error: column Expense.PA_ID does not exist
+error: Oct-11-2022 04:13:19: 	GET: Failed to fetch all expenses | user_id: 1 | error: column Expense.PA_ID does not exist
+error: Oct-11-2022 04:19:20: 	GET: Failed to fetch all expenses | user_id: 1 | error: column Expense.E_ET_ID does not exist
+error: Oct-11-2022 04:21:07: 	GET: Failed to fetch all expenses | user_id: 1 | error: relation "Expense" does not exist
+info: Oct-11-2022 13:42:55: 	DELETE : Deleted Project successfully | user_id: 1 | project_id: 1
+info: Oct-11-2022 13:49:43: 	DELETE : Deleted Project successfully | user_id: 1 | project_id: 2
+error: Oct-11-2022 14:09:42: 	PUT: Failed to edit expense | expense_id: 1 | user_id: 1 | error: null value in column "E_ET_ID" of relation "Expense" violates not-null constraint
+error: Oct-11-2022 14:09:44: 	PUT: Failed to edit expense | expense_id: 1 | user_id: 1 | error: null value in column "E_ET_ID" of relation "Expense" violates not-null constraint
+info: Oct-11-2022 15:37:41: 	PUT: Edit user details | by user_id: 1
+info: Oct-11-2022 15:37:44: 	PUT: Edit user details | by user_id: 1
+info: Oct-12-2022 10:30:46: 	PUT: Edit user details | by user_id: 1
+info: Oct-12-2022 10:30:53: 	PUT: Edit user details | by user_id: 1
+info: Oct-12-2022 10:30:58: 	PUT: Edit user details | by user_id: 1
+info: Oct-12-2022 10:31:04: 	PUT: Edit user details | by user_id: 1
+error: Oct-18-2022 12:02:46: 	GET: Failed to fetch all expenses | user_id: 1 | error: relation "Expense" does not exist
+error: Oct-18-2022 12:08:37: 	GET: Failed to fetch all expenses | user_id: 1 | error: relation "Expense" does not exist
+error: Oct-18-2022 12:08:39: 	GET: Failed to fetch all expenses | user_id: 1 | error: relation "Expense" does not exist
+error: Oct-18-2022 12:11:00: 	GET: Failed to fetch all expenses | user_id: 1 | error: column Expense.E_ET_ID does not exist
+error: Oct-18-2022 15:25:26: 	GET: Failed to fetch all expenses | user_id: 1 | error: column "E_CostCenter" does not exist
+error: Oct-18-2022 15:25:45: 	GET: Failed to fetch all expenses | user_id: 1 | error: column "E_CostCenter" does not exist
+error: Oct-18-2022 15:26:24: 	GET: Failed to fetch all expenses | user_id: 1 | error: column "E_CostCenter" does not exist
+error: Oct-18-2022 15:26:36: 	GET: Failed to fetch all expenses | user_id: 1 | error: column "E_CostCenter" does not exist
+error: Oct-18-2022 15:33:42: 	GET: Failed to fetch all expenses | user_id: 1 | error: function to_char(character varying, unknown) does not exist
+error: Oct-18-2022 15:34:19: 	GET: Failed to fetch all expenses | user_id: 1 | error: function to_char(character varying, unknown) does not exist
+error: Oct-22-2022 20:12:35: 	GET: Failed to fetch all expenses | user_id: 1 | error: relation "Expense" does not exist
+error: Oct-25-2022 17:18:25: 	GET: Failed to fetch all expenses | user_id: 1 | error: relation "Expense" does not exist
+info: Oct-28-2022 18:27:33: 	DELETE : Deleted Payment successfully | user_id: 1 | payment_id: 1
+error: Oct-31-2022 15:07:49: 	POST: Login | User tried to login with email (jai_s@me.iitr.ac.in) with wrong password.
+error: Oct-31-2022 15:08:03: 	POST: Login | User tried to login with email (jai_s@me.iitr.ac.in) with wrong password.
+error: Oct-31-2022 15:08:07: 	POST: Login | User tried to login with email (jai_s@me.iitr.ac.in) with wrong password.

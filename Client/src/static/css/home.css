@@ -1,0 +1,10 @@
+.homePage {
+    width: 100%;
+  }
+  
+  .homePage h4 {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--baseBlack);
+    margin-top: 0.5em;
+  }
