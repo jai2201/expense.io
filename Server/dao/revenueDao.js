@@ -42,6 +42,19 @@ module.exports.editRevenueDetails = async (params) => {
   }
 };
 
+module.exports.getRevenueFromInvoiceNumber = async (invoice_number) => {
+  try {
+    console.log(invoice_number);
+    const result = await pool.query(
+      RevenueQuery.GET_REVENUE_FROM_CUSTOMER_INVOICE_NUMBER,
+      [invoice_number]
+    );
+    return result.rows;
+  } catch (err) {
+    throw err;
+  }
+};
+
 module.exports.deleteRevenue = async (revenue_id) => {
   try {
     const result = await pool.query(RevenueQuery.DELETE_A_REVENUE, [

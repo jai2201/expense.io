@@ -329,8 +329,6 @@ function Revenue(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Project Work Order Number</span>
                       <input
@@ -354,6 +352,7 @@ function Revenue(props) {
                       <br />
                     </td>
                   </tr>
+
                   <tr>
                     <td>
                       <span>Client Invoice Date</span>
@@ -377,8 +376,6 @@ function Revenue(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>CGST </span>
                       <input
@@ -390,6 +387,8 @@ function Revenue(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>SGST </span>
                       <input
@@ -401,8 +400,6 @@ function Revenue(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>IGST </span>
                       <input
@@ -453,8 +450,6 @@ function Revenue(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Project Work Order Number</span>
                       <input
@@ -478,6 +473,7 @@ function Revenue(props) {
                       <br />
                     </td>
                   </tr>
+
                   <tr>
                     <td>
                       <span>Client Invoice Date</span>
@@ -501,8 +497,6 @@ function Revenue(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>CGST </span>
                       <input
@@ -514,6 +508,8 @@ function Revenue(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>SGST </span>
                       <input
@@ -525,8 +521,6 @@ function Revenue(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>IGST </span>
                       <input

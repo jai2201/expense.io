@@ -482,8 +482,6 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Partner City</span>
                       <input
@@ -495,6 +493,8 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Partner State</span>
                       <select
@@ -506,8 +506,6 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Project</span>
                       <select
@@ -554,7 +552,6 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
-
                     <td>
                       <span>Partner Concern Person Name</span>
                       <input
@@ -566,8 +563,6 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Partner Concern Person Email</span>
                       <input
@@ -579,6 +574,8 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Partner Concern Person Number</span>
                       <input
@@ -590,8 +587,6 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Partner Work Order Number</span>
                       <input
@@ -638,8 +633,6 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Partner Work Order Validity in months</span>
                       <input
@@ -653,6 +646,8 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Partner Payment Terms</span>
                       <input
@@ -664,8 +659,6 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Partner Work Order Is Active</span>
                       <select
@@ -729,8 +722,6 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Partner City</span>
                       <input
@@ -742,6 +733,8 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Partner State</span>
                       <select
@@ -753,8 +746,6 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Project</span>
                       <select
@@ -801,7 +792,6 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
-
                     <td>
                       <span>Partner Concern Person Name</span>
                       <input
@@ -813,8 +803,6 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Partner Concern Person Email</span>
                       <input
@@ -826,6 +814,8 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Partner Concern Person Number</span>
                       <input
@@ -837,8 +827,6 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Partner Work Order Number</span>
                       <input
@@ -885,8 +873,6 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Partner Work Order Validity in months</span>
                       <input
@@ -900,6 +886,8 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Partner Payment Terms</span>
                       <input
@@ -911,8 +899,6 @@ function Partner(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Partner Work Order Is Active</span>
                       <select

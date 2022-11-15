@@ -22,6 +22,7 @@ import Payment from './components/payment';
 
 import './static/css/base.css';
 import Revenue from './components/revenue';
+import ProjectDetail from './components/projectDetail';
 
 const App = () => {
   return (
@@ -75,6 +76,11 @@ const App = () => {
             exact="true"
             path={APPLICATION_URLS.REVENUE_PAGE}
             element={<Revenue />}
+          />
+          <Route
+            exact="true"
+            path={APPLICATION_URLS.PROJECT_DETAILS_PAGE}
+            element={<ProjectDetail />}
           />
         </Route>
       </Routes>

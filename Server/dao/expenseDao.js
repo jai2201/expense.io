@@ -41,6 +41,18 @@ module.exports.editExpenseDetails = async (params) => {
   }
 };
 
+module.exports.getExpenseFromInvoiceNumber = async (invoice_number) => {
+  try {
+    const result = await pool.query(
+      ExpenseQuery.GET_EXPENSE_FROM_INVOICE_NUMBER,
+      [invoice_number]
+    );
+    return result.rows;
+  } catch (err) {
+    throw err;
+  }
+};
+
 module.exports.deleteExpense = async (expense_id) => {
   try {
     const result = await pool.query(ExpenseQuery.DELETE_A_EXPENSE, [

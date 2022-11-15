@@ -22,6 +22,7 @@ function Payment(props) {
     transactionID: '',
     bankReferenceNumber: '',
     invoiceNumber: '',
+    totalAmount: '',
     selectedPayment: null,
   });
 
@@ -54,8 +55,21 @@ function Payment(props) {
         accessor: 'P_InvoiceNumber',
         filterable: true,
       },
+      {
+        Header: 'Total Amount',
+        accessor: 'P_TotalAmount',
+        filterable: true,
+      },
+      {
+        Header: 'Is Mapped',
+        accessor: 'P_IsMappedOrUnmapped',
+        filterable: true,
+        Cell: (e) => (
+          <input disabled type="checkbox" defaultChecked={e.value} />
+        ),
+      },
     ],
-    []
+    [filteredData]
   );
 
   const data = useMemo(() => filteredData, [filteredData]);
@@ -123,6 +137,7 @@ function Payment(props) {
               transaction_id: values.transactionID,
               bank_reference_number: values.bankReferenceNumber,
               invoice_number: values.invoiceNumber,
+              total_amount: values.totalAmount,
             },
           },
           {
@@ -142,6 +157,7 @@ function Payment(props) {
               transactionID: '',
               bankReferenceNumber: '',
               invoiceNumber: '',
+              totalAmount: '',
               selectedPayment: null,
             });
           }
@@ -162,6 +178,7 @@ function Payment(props) {
       transactionID: payment['P_TransactionID'],
       bankReferenceNumber: payment['P_BankReferenceNumber'],
       invoiceNumber: payment['P_InvoiceNumber'],
+      totalAmount: payment['P_TotalAmount'],
       selectedPayment: payment,
     });
     setEditModalShow(true);
@@ -180,6 +197,7 @@ function Payment(props) {
             transaction_id: values.transactionID,
             bank_reference_number: values.bankReferenceNumber,
             invoice_number: values.invoiceNumber,
+            total_amount: values.totalAmount,
           },
         },
         {
@@ -202,6 +220,7 @@ function Payment(props) {
             transactionID: '',
             bankReferenceNumber: '',
             invoiceNumber: '',
+            totalAmount: '',
             selectedPayment: null,
           });
         }
@@ -238,6 +257,7 @@ function Payment(props) {
             transactionID: '',
             bankReferenceNumber: '',
             invoiceNumber: '',
+            totalAmount: '',
             selectedPayment: null,
           });
         }
@@ -283,8 +303,6 @@ function Payment(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Transaction Date</span>
                       <input
@@ -308,6 +326,7 @@ function Payment(props) {
                       <br />
                     </td>
                   </tr>
+
                   <tr>
                     <td>
                       <span>Bank Reference Number</span>
@@ -326,6 +345,16 @@ function Payment(props) {
                         type="text"
                         value={values.invoiceNumber}
                         onChange={handleChange('invoiceNumber')}
+                      />
+                      <br />
+                      <br />
+                    </td>
+                    <td>
+                      <span>Total Amount</span>
+                      <input
+                        type="text"
+                        value={values.totalAmount}
+                        onChange={handleChange('totalAmount')}
                         required
                       />
                       <br />
@@ -361,8 +390,6 @@ function Payment(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Transaction Date</span>
                       <input
@@ -386,6 +413,7 @@ function Payment(props) {
                       <br />
                     </td>
                   </tr>
+
                   <tr>
                     <td>
                       <span>Bank Reference Number</span>
@@ -404,6 +432,16 @@ function Payment(props) {
                         type="text"
                         value={values.invoiceNumber}
                         onChange={handleChange('invoiceNumber')}
+                      />
+                      <br />
+                      <br />
+                    </td>
+                    <td>
+                      <span>Total Amount</span>
+                      <input
+                        type="text"
+                        value={values.totalAmount}
+                        onChange={handleChange('totalAmount')}
                         required
                       />
                       <br />
@@ -432,6 +470,7 @@ function Payment(props) {
                   transactionID: '',
                   bankReferenceNumber: '',
                   invoiceNumber: '',
+                  totalAmount: '',
                   selectedPayment: null,
                 });
               }}

@@ -403,8 +403,6 @@ function Project(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Project Client Name</span>
                       <input
@@ -416,6 +414,8 @@ function Project(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Project Type</span>
                       <select
@@ -427,8 +427,6 @@ function Project(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Partner Location</span>
                       <input
@@ -452,6 +450,7 @@ function Project(props) {
                       <br />
                     </td>
                   </tr>
+
                   <tr>
                     <td>
                       <span>Project Concern Person Email</span>
@@ -475,8 +474,6 @@ function Project(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Project Work Order Number</span>
                       <input
@@ -488,6 +485,8 @@ function Project(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Project Work Order Value</span>
                       <input
@@ -499,8 +498,6 @@ function Project(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Project Work Order Date</span>
                       <input
@@ -576,8 +573,6 @@ function Project(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Project Client Name</span>
                       <input
@@ -589,6 +584,8 @@ function Project(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Project Type</span>
                       <select
@@ -600,8 +597,6 @@ function Project(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Partner Location</span>
                       <input
@@ -625,6 +620,7 @@ function Project(props) {
                       <br />
                     </td>
                   </tr>
+
                   <tr>
                     <td>
                       <span>Project Concern Person Email</span>
@@ -648,8 +644,6 @@ function Project(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Project Work Order Number</span>
                       <input
@@ -661,6 +655,8 @@ function Project(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Project Work Order Value</span>
                       <input
@@ -672,8 +668,6 @@ function Project(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Project Work Order Date</span>
                       <input

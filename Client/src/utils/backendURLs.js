@@ -17,7 +17,8 @@ export const ADD_NEW_PARTNER = 'http://127.0.0.1:8080/api/post/partner';
 export const EDIT_A_PARTNER = 'http://127.0.0.1:8080/api/put/partner';
 export const DELETE_A_PARTNER = 'http://127.0.0.1:8080/api/delete/partner';
 export const GET_ALL_PROJECTS = 'http://127.0.0.1:8080/api/get/projects';
-export const GET_PROJECT_DETAILS = 'http://127.0.0.1:8080/api/get/project';
+export const GET_PROJECT_DETAILS =
+  'http://127.0.0.1:8080/api/get/project_details';
 export const ADD_NEW_PROJECT = 'http://127.0.0.1:8080/api/post/project';
 export const EDIT_A_PROJECT = 'http://127.0.0.1:8080/api/put/project';
 export const DELETE_A_PROJECT = 'http://127.0.0.1:8080/api/delete/project';
@@ -39,3 +40,13 @@ export const GET_REVENUE_DETAILS =
 export const ADD_NEW_REVENUE = 'http://127.0.0.1:8080/api/post/revenue';
 export const EDIT_A_REVENUE = 'http://127.0.0.1:8080/api/put/revenue';
 export const DELETE_A_REVENUE = 'http://127.0.0.1:8080/api/delete/revenue';
+export const GET_ALL_EXPENSES_FOR_A_MONTH =
+  'http://127.0.0.1:8080/api/get/expenses/month';
+export const GET_ALL_EXPENSES_FOR_A_PROJECT =
+  'http://127.0.0.1:8080/api/get/expenses/project';
+export const GET_ALL_PAYMENTS_FOR_A_PROJECT =
+  'http://127.0.0.1:8080/api/get/payments/project';
+export const GET_ALL_REVENUES_FOR_A_SPECIFIC_PROJECT =
+  'http://127.0.0.1:8080/api/get/revenues/project';
+export const DASHBOARD_DETAILS =
+  'http://127.0.0.1:8080/api/get/dashboard_details';

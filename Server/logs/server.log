@@ -94,3 +94,36 @@ info: Oct-28-2022 18:27:33: 	DELETE : Deleted Payment successfully | user_id: 1 
 error: Oct-31-2022 15:07:49: 	POST: Login | User tried to login with email (jai_s@me.iitr.ac.in) with wrong password.
 error: Oct-31-2022 15:08:03: 	POST: Login | User tried to login with email (jai_s@me.iitr.ac.in) with wrong password.
 error: Oct-31-2022 15:08:07: 	POST: Login | User tried to login with email (jai_s@me.iitr.ac.in) with wrong password.
+error: Nov-07-2022 20:25:56: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | error: unterminated quoted identifier at or near ""PR_ID = $1;"
+error: Nov-07-2022 20:27:28: 	GET: Failed to fetch all revenues for the project : 2 | user_id: 1 | TypeError: Cannot read properties of undefined (reading 'PR_WorkOrderNumber')
+error: Nov-07-2022 20:27:44: 	GET: Failed to fetch all revenues for the project : 2 | user_id: 1 | TypeError: Cannot read properties of undefined (reading 'PR_WorkOrderNumber')
+error: Nov-07-2022 20:28:57: 	GET: Failed to fetch all revenues for the project : 2 | user_id: 1 | TypeError: Cannot read properties of undefined (reading 'PR_WorkOrderNumber')
+error: Nov-07-2022 20:29:30: 	GET: Failed to fetch all expense for the project : 1 | user_id: 1 | error: there is no parameter $1
+error: Nov-07-2022 20:32:07: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Socket'
+    |     property '_writableState' -> object with constructor 'WritableState'
+    |     property 'afterWriteTickInfo' -> object with constructor 'Object'
+    --- property 'stream' closes the circle
+error: Nov-07-2022 20:33:35: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | TypeError: Cannot read properties of undefined (reading 'headers')
+error: Nov-07-2022 20:55:41: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | Error: Query values must be an array
+error: Nov-07-2022 20:56:10: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | Error: Query values must be an array
+error: Nov-07-2022 20:56:21: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | Error: Query values must be an array
+error: Nov-07-2022 20:57:24: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | error: syntax error at or near "$1"
+error: Nov-07-2022 20:57:49: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | error: syntax error at or near "$1"
+error: Nov-07-2022 20:58:12: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | error: syntax error at or near "$1"
+error: Nov-07-2022 20:58:35: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | error: syntax error at or near "="
+error: Nov-07-2022 23:24:17: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | error: syntax error at or near "="
+error: Nov-07-2022 23:24:25: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | error: syntax error at or near "ANY"
+error: Nov-07-2022 23:24:48: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | error: operator does not exist: character varying = integer[]
+error: Nov-07-2022 23:24:55: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | error: syntax error at or near "IN"
+error: Nov-07-2022 23:25:42: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | error: operator does not exist: character varying = integer[]
+error: Nov-07-2022 23:26:40: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | error: syntax error at or near ":"
+error: Nov-07-2022 23:31:42: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | error: operator does not exist: character varying = integer
+error: Nov-07-2022 23:32:08: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | error: bind message supplies 3 parameters, but prepared statement "" requires 1
+error: Nov-09-2022 13:04:02: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | error: bind message supplies 3 parameters, but prepared statement "" requires 1
+error: Nov-09-2022 14:16:57: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | error: syntax error at or near ":"
+error: Nov-09-2022 14:17:24: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | error: syntax error at or near ":"
+error: Nov-12-2022 13:42:39: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | error: syntax error at or near ":"
+error: Nov-12-2022 18:38:47: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | TypeError: Cannot read properties of undefined (reading 'getProjectDetails')
+error: Nov-12-2022 18:39:59: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | ReferenceError: _ is not defined
+error: Nov-12-2022 18:40:25: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | ReferenceError: _ is not defined

@@ -1,10 +1,22 @@
 .homePage {
     width: 100%;
-  }
+    display: block;
+}
   
-  .homePage h4 {
-    font-size: 1.3em;
-    font-weight: 700;
-    color: var(--baseBlack);
-    margin-top: 0.5em;
-  }
+.homePage h4 {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: var(--baseBlack);
+  margin-top: 0.5em;
+}
+
+.pieCharts {
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: row;
+}
+
+.pieChart {
+  max-width: 300px;
+  max-height: 600px;
+}

@@ -153,11 +153,11 @@ CREATE TABLE "Expense"(
 	"E_ExpenseDate" DATE,
 	"E_InvoiceNumber" VARCHAR(500),
 	"E_InvoiceDate" DATE,
-	"E_BasicValue" VARCHAR (100),
-	"E_CGST" VARCHAR (100),
-	"E_SGST" VARCHAR (100),
-	"E_IGST" VARCHAR (100),
-	"E_TotalTax" VARCHAR (100),
+	"E_BasicValue" bigint,
+	"E_CGST" bigint,
+	"E_SGST" bigint,
+	"E_IGST" bigint,
+	"E_TotalTax" bigint,
 	"E_CostCenter" VARCHAR (100),
 	"E_CreatedBy" BIGSERIAL REFERENCES "User" ("U_ID") NOT NULL,
 	"E_CreatedOn" DATE NOT NULL,
@@ -168,34 +168,30 @@ CREATE TABLE "Expense"(
 CREATE TABLE "Employee"(
 	"EM_ID" BIGSERIAL PRIMARY KEY,
 	"EM_Code" VARCHAR(100) NOT NULL,
+	"EM_PR_ID" BIGSERIAL REFERENCES "Project" ("PR_ID") ON DELETE CASCADE,
 	"EM_Name" VARCHAR(100) NOT NULL,
 	"EM_Designation" VARCHAR(100) NOT NULL,
 	"EM_Salary" BIGSERIAL NOT NULL,
 	"EM_DateOfJoining" DATE,
-	"EM_DateOfExit" DATE
+	"EM_DateOfExit" DATE,
+	"EM_IsActive" BOOLEAN
 )
 
-create table "EmployeeProjectMapping"(
-	"EM_P_ID" BIGSERIAL PRIMARY KEY,
-	"EM_ID" BIGSERIAL REFERENCES "Employee" ("EM_ID") ON DELETE CASCADE,
-	"PR_ID" BIGSERIAL REFERENCES "Project" ("PR_ID") ON DELETE CASCADE
-)
-
-create table "Invoice"(
-	"I_ID" BIGSERIAL PRIMARY KEY,
-	"I_CustomerInvoiceNumber" VARCHAR(100),
-	"I_ProjectWorkOrderNumber" VARCHAR (100),
-	"I_ClientInvoiceDate" DATE,
-	"I_ClientInvoiceNumber" VARCHAR (100),
-	"I_BasicValue" VARCHAR (100),
-	"I_CGST" VARCHAR (100),
-	"I_SGST" VARCHAR (100),
-	"I_IGST" VARCHAR (100),
-	"I_TotalTax" VARCHAR (100),
-	"I_CreatedBy" BIGSERIAL REFERENCES "User" ("U_ID") NOT NULL,
-	"I_CreatedOn" DATE NOT NULL,
-	"I_UpdatedBy" BIGSERIAL REFERENCES "User" ("U_ID") NOT NULL,
-	"I_UpdatedOn" DATE NOT NULL
+create table "Revenue"(
+	"R_ID" BIGSERIAL PRIMARY KEY,
+	"R_CustomerInvoiceNumber" VARCHAR(100),
+	"R_ProjectWorkOrderNumber" VARCHAR (100),
+	"R_ClientInvoiceDate" DATE,
+	"R_ClientInvoiceNumber" VARCHAR (100),
+	"R_BasicValue" bigint,
+	"R_CGST" bigint,
+	"R_SGST" bigint,
+	"R_IGST" bigint,
+	"R_TotalTax" bigint,
+	"R_CreatedBy" BIGSERIAL REFERENCES "User" ("U_ID") NOT NULL,
+	"R_CreatedOn" DATE NOT NULL,
+	"R_UpdatedBy" BIGSERIAL REFERENCES "User" ("U_ID") NOT NULL,
+	"R_UpdatedOn" DATE NOT NULL
 )
 
 select * from "Expense"
@@ -205,6 +201,7 @@ CREATE TABLE "Payment"(
 	"P_Type" varchar (50),
 	"P_TransactionDate" date,
 	"P_TransactionID" varchar (200),
+	"P_TotalAmount" bigint,
 	"P_BankReferenceNumber" varchar (200),
 	"P_InvoiceNumber" varchar(200),
 	"P_CreatedBy" BIGSERIAL REFERENCES "User" ("U_ID") NOT NULL,
@@ -219,11 +216,11 @@ create table "Revenue"(
 	"R_ProjectWorkOrderNumber" varchar(100),
 	"R_ClientInvoiceDate" date,
 	"R_ClientInvoiceNumber" varchar(100),
-	"R_BasicValue" Varchar (100),
-	"R_CGST" varchar (100),
-	"R_SGST" varchar (100),
-	"R_IGST" VARCHAR (100),
-	"R_TotalTax" VARCHAR (100),
+	"R_BasicValue" bigint,
+	"R_CGST" bigint),
+	"R_SGST" bigint,
+	"R_IGST" bigint,
+	"R_TotalTax" bigint,
 	"R_CreatedBy" BIGSERIAL REFERENCES "User" ("U_ID") NOT NULL,
 	"R_CreatedOn" DATE NOT NULL,
 	"R_UpdatedBy" BIGSERIAL REFERENCES "User" ("U_ID") NOT NULL,

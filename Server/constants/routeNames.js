@@ -35,4 +35,9 @@ module.exports = Object.freeze({
   ADD_NEW_REVENUE: '/post/revenue',
   EDIT_A_REVENUE: '/put/revenue',
   DELETE_A_REVENUE: '/delete/revenue',
+  GET_ALL_EXPENSES_FOR_A_MONTH: '/get/expenses/month',
+  GET_ALL_EXPENSES_FOR_A_PROJECT: '/get/expenses/project',
+  GET_ALL_PAYMENTS_FOR_A_PROJECT: '/get/payments/project',
+  GET_ALL_REVENUES_FOR_A_SPECIFIC_PROJECT: '/get/revenues/project',
+  GET_DASHBOARD_DETAILS: '/get/dashboard_details',
 });

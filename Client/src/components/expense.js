@@ -504,8 +504,6 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Expense Interval</span>
                       <select
@@ -517,6 +515,8 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Project</span>
                       <select
@@ -538,8 +538,6 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Partner</span>
                       <select
@@ -621,8 +619,6 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Cost Centre</span>
                       <input
@@ -634,6 +630,8 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Basic Value</span>
                       <input
@@ -645,8 +643,6 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>CGST</span>
                       <input
@@ -705,7 +701,7 @@ function Expense(props) {
           <EditModal
             editModalShow={editModalShow}
             setEditModalShow={setEditModalShow}
-            title="Edit User"
+            title="Edit Expense"
           >
             <form onSubmit={handleEditExpense}>
               <table>
@@ -733,8 +729,6 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Expense Interval</span>
                       <select
@@ -746,6 +740,8 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Project</span>
                       <select
@@ -767,8 +763,6 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Partner</span>
                       <select
@@ -850,8 +844,6 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Cost Centre</span>
                       <input
@@ -863,6 +855,8 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Basic Value</span>
                       <input
@@ -874,8 +868,6 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>CGST</span>
                       <input

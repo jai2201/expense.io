@@ -312,8 +312,6 @@ function User(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Email</span>
                       <input
@@ -325,6 +323,8 @@ function User(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Password</span>
                       <input
@@ -336,8 +336,6 @@ function User(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>User Role</span>
                       <select
@@ -387,8 +385,6 @@ function User(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Email</span>
                       <input
@@ -400,21 +396,19 @@ function User(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
-                      <span>Is Active</span>
-                      <select
-                        onChange={handleChange('isActive')}
-                        value={values.isActive}
-                      >
-                        <option value={null}>--SELECT--</option>
-                        <option value={'true'}>Yes</option>
-                        <option value={'false'}>No</option>
-                      </select>
+                      <span>Password</span>
+                      <input
+                        type="password"
+                        value={values.password}
+                        onChange={handleChange('password')}
+                        required
+                      />
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>User Role</span>
                       <select
@@ -427,20 +421,6 @@ function User(props) {
                       <br />
                     </td>
                   </tr>
-                  {props.users.selected_user ? (
-                    <tr>
-                      <td>
-                        <span>Password</span>
-                        <input
-                          type="text"
-                          value={values.password}
-                          onChange={handleChange('password')}
-                        />
-                        <br />
-                        <br />
-                      </td>
-                    </tr>
-                  ) : null}
                 </tbody>
               </table>
               <button type="submit" className="greenButton">

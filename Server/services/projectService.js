@@ -27,9 +27,6 @@ module.exports.GET_projectDetails = async (httpRequest, httpResponse) => {
     const result = await ProjectDao.getProjectDetails(project_id);
     return _200(httpResponse, result);
   } catch (err) {
-    logger.error(
-      `GET: Failed to fetch project details | user_id: ${user_id} | ${err}`
-    );
     return _error(httpResponse, {
       type: 'generic',
       message: err.message,

@@ -15,21 +15,26 @@
 }
 
 .selectTable table {
+  border: 1px solid var(--shade2Blue);
   font-size: 0.9em;
   font-weight: 500;
+  border-radius: 10px;
 }
 
 .selectTable thead {
+  border: 1px solid var(--shade2Blue);
   color: var(--baseBlack);
   margin: 0.2em 0;
 }
 
 .selectTable tbody {
+  border: 1px solid var(--shade2Blue);
   color: var(--baseBlack);
 }
 
 .selectTable th,
 .selectTable td {
+  border: 1px solid var(--shade2Blue);
   padding: 0.6em 0.2em 0.6em 1em;
   border-bottom: 1px solid var(--shade2Blue);
   text-align: left;

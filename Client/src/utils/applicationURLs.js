@@ -9,3 +9,4 @@ export const USER_PAGE = '/users';
 export const EMPLOYEE_PAGE = '/employees';
 export const PAYMENT_PAGE = '/payments';
 export const REVENUE_PAGE = '/revenues';
+export const PROJECT_DETAILS_PAGE = '/project/:project_id';

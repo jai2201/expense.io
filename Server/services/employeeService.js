@@ -44,22 +44,26 @@ module.exports.POST_addEmployee = async (httpRequest, httpResponse) => {
       httpRequest.body.employee.employee_date_of_exit
     ) {
       values = [
+        httpRequest.body.employee.project_id,
         httpRequest.body.employee.employee_code,
         httpRequest.body.employee.employee_name,
         httpRequest.body.employee.employee_designation,
         httpRequest.body.employee.employee_salary,
         httpRequest.body.employee.employee_date_of_joining,
         httpRequest.body.employee.employee_date_of_exit,
+        httpRequest.body.employee.is_active,
         user_id,
       ];
     } else {
       values = [
+        httpRequest.body.employee.project_id,
         httpRequest.body.employee.employee_code,
         httpRequest.body.employee.employee_name,
         httpRequest.body.employee.employee_designation,
         httpRequest.body.employee.employee_salary,
         httpRequest.body.employee.employee_date_of_joining,
         null,
+        httpRequest.body.employee.is_active,
         user_id,
       ];
     }
@@ -87,23 +91,27 @@ module.exports.PUT_editEmployee = async (httpRequest, httpResponse) => {
     ) {
       values = [
         httpRequest.body.employee.employee_id,
+        httpRequest.body.employee.project_id,
         httpRequest.body.employee.employee_code,
         httpRequest.body.employee.employee_name,
         httpRequest.body.employee.employee_designation,
         httpRequest.body.employee.employee_salary,
         httpRequest.body.employee.employee_date_of_joining,
         httpRequest.body.employee.employee_date_of_exit,
+        httpRequest.body.employee.is_active,
         user_id,
       ];
     } else {
       values = [
         httpRequest.body.employee.employee_id,
+        httpRequest.body.employee.project_id,
         httpRequest.body.employee.employee_code,
         httpRequest.body.employee.employee_name,
         httpRequest.body.employee.employee_designation,
         httpRequest.body.employee.employee_salary,
         httpRequest.body.employee.employee_date_of_joining,
         null,
+        httpRequest.body.employee.is_active,
         user_id,
       ];
     }

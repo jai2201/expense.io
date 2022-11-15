@@ -1,6 +1,6 @@
 const { _200, _error } = require('../common/httpHelper');
 const logger = require('../common/logger');
-const { PaymentDao } = require('../dao/index');
+const { PaymentDao, ExpenseDao, RevenueDao } = require('../dao/index');
 
 module.exports.GET_allPayments = async (httpRequest, httpResponse) => {
   const { decoded } = httpRequest.headers;
@@ -41,12 +41,30 @@ module.exports.POST_addPayment = async (httpRequest, httpResponse) => {
   const { decoded } = httpRequest.headers;
   const user_id = decoded.UserID;
   try {
+    let is_mapped = false;
+    if (httpRequest.body.payment.payment_type == 'INFLOW') {
+      const revenue = await RevenueDao.getRevenueFromInvoiceNumber(
+        httpRequest.body.payment.invoice_number
+      );
+      if (revenue[0]) {
+        is_mapped = true;
+      }
+    } else {
+      const expense = await ExpenseDao.getExpenseFromInvoiceNumber(
+        httpRequest.body.payment.invoice_number
+      );
+      if (expense[0]) {
+        is_mapped = true;
+      }
+    }
     const values = [
       httpRequest.body.payment.payment_type,
       httpRequest.body.payment.transaction_date,
       httpRequest.body.payment.transaction_id,
       httpRequest.body.payment.bank_reference_number,
       httpRequest.body.payment.invoice_number,
+      httpRequest.body.payment.total_amount,
+      is_mapped,
       user_id,
     ];
 
@@ -67,6 +85,22 @@ module.exports.PUT_editPaymentDetails = async (httpRequest, httpResponse) => {
   const { decoded } = httpRequest.headers;
   const user_id = decoded.UserID;
   try {
+    let is_mapped = false;
+    if (httpRequest.body.payment.payment_type == 'INFLOW') {
+      const revenue = await RevenueDao.getRevenueFromInvoiceNumber(
+        httpRequest.body.payment.invoice_number
+      );
+      if (revenue[0]) {
+        is_mapped = true;
+      }
+    } else {
+      const expense = await ExpenseDao.getExpenseFromInvoiceNumber(
+        httpRequest.body.payment.invoice_number
+      );
+      if (expense[0]) {
+        is_mapped = true;
+      }
+    }
     const values = [
       httpRequest.body.payment.payment_id,
       httpRequest.body.payment.payment_type,
@@ -74,8 +108,11 @@ module.exports.PUT_editPaymentDetails = async (httpRequest, httpResponse) => {
       httpRequest.body.payment.transaction_id,
       httpRequest.body.payment.bank_reference_number,
       httpRequest.body.payment.invoice_number,
+      httpRequest.body.payment.total_amount,
+      is_mapped,
       user_id,
     ];
+
     const params = {
       values: values,
     };

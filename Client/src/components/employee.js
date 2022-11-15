@@ -23,6 +23,8 @@ function Employee(props) {
     employeeSalary: '',
     employeeDateOfJoining: '',
     employeeDateOfExit: '',
+    employeeProjectID: '',
+    employeeIsActive: '',
     selectedEmployee: null,
   });
 
@@ -33,6 +35,11 @@ function Employee(props) {
       {
         Header: 'Employee Name',
         accessor: 'EM_Name',
+        filterable: true,
+      },
+      {
+        Header: 'Project Name',
+        accessor: 'PR_Name',
         filterable: true,
       },
       {
@@ -60,8 +67,16 @@ function Employee(props) {
         accessor: 'EM_DateOfExitInFormat',
         filterable: true,
       },
+      {
+        Header: 'Is Active',
+        accessor: 'EM_IsActive',
+        filterable: true,
+        Cell: (e) => (
+          <input disabled type="checkbox" defaultChecked={e.value} />
+        ),
+      },
     ],
-    []
+    [filteredData]
   );
 
   const data = useMemo(() => filteredData, [filteredData]);
@@ -108,8 +123,26 @@ function Employee(props) {
       });
   };
 
+  const fetchAllProjects = () => {
+    axios
+      .get(BACKEND_URLS.GET_ALL_PROJECTS, {
+        headers: {
+          token: localStorage.getItem('token'),
+        },
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          props.set_all_projects(res.data.data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     fetchAllEmployees();
+    fetchAllProjects();
   }, []);
 
   useEffect(() => {
@@ -124,12 +157,14 @@ function Employee(props) {
           BACKEND_URLS.ADD_NEW_EMPLOYEE,
           {
             employee: {
+              project_id: values.employeeProjectID,
               employee_code: values.employeeCode,
               employee_name: values.employeeName,
               employee_designation: values.employeeDesignation,
               employee_salary: values.employeeSalary,
               employee_date_of_joining: values.employeeDateOfJoining,
               employee_date_of_exit: values.employeeDateOfExit,
+              is_active: values.employeeIsActive,
             },
           },
           {
@@ -144,12 +179,14 @@ function Employee(props) {
             setAddModalShow(false);
             setValues({
               employeeID: '',
+              employeeProjectID: '',
               employeeName: '',
               employeeCode: '',
               employeeDesignation: '',
               employeeSalary: '',
               employeeDateOfJoining: '',
               employeeDateOfExit: '',
+              employeeIsActive: '',
               selectedEmployee: null,
             });
           }
@@ -172,6 +209,8 @@ function Employee(props) {
       employeeSalary: employee['EM_Salary'],
       employeeDateOfJoining: employee['EM_DateOfJoiningInFormat'],
       employeeDateOfExit: employee['EM_DateOfExitInFormat'],
+      employeeProjectID: employee['EM_PR_ID'],
+      employeeIsActive: employee['EM_IsActive'],
       selectedEmployee: employee,
     });
     setEditModalShow(true);
@@ -184,6 +223,7 @@ function Employee(props) {
         BACKEND_URLS.EDIT_A_EMPLOYEE,
         {
           employee: {
+            project_id: values.employeeProjectID,
             employee_id: values.employeeID,
             employee_code: values.employeeCode,
             employee_name: values.employeeName,
@@ -191,6 +231,7 @@ function Employee(props) {
             employee_salary: values.employeeSalary,
             employee_date_of_joining: values.employeeDateOfJoining,
             employee_date_of_exit: values.employeeDateOfExit,
+            is_active: values.employeeIsActive,
           },
         },
         {
@@ -208,12 +249,14 @@ function Employee(props) {
           setEditModalShow(false);
           setValues({
             employeeID: '',
+            employeeProjectID: '',
             employeeName: '',
             employeeCode: '',
             employeeDesignation: '',
             employeeSalary: '',
             employeeDateOfJoining: '',
             employeeDateOfExit: '',
+            employeeIsActive: '',
             selectedEmployee: null,
           });
         }
@@ -245,12 +288,14 @@ function Employee(props) {
           setEditModalShow(false);
           setValues({
             employeeID: '',
+            employeeProjectID: '',
             employeeName: '',
             employeeCode: '',
             employeeDesignation: '',
             employeeSalary: '',
             employeeDateOfJoining: '',
             employeeDateOfExit: '',
+            employeeIsActive: '',
             selectedEmployee: null,
           });
         }
@@ -305,8 +350,6 @@ function Employee(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Employee Designation</span>
                       <input
@@ -318,6 +361,8 @@ function Employee(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Employee Salary</span>
                       <input
@@ -329,8 +374,6 @@ function Employee(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Date Of Joining</span>
                       <input
@@ -349,6 +392,42 @@ function Employee(props) {
                         value={values.employeeDateOfExit}
                         onChange={handleChange('employeeDateOfExit')}
                       />
+                      <br />
+                      <br />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>Project</span>
+                      <select
+                        onChange={handleChange('employeeProjectID')}
+                        value={values.employeeProjectID}
+                      >
+                        <option value={null}>--SELECT--</option>
+                        {props.projects.projects?.map((each_project) => {
+                          return (
+                            <option
+                              key={each_project['PR_ID']}
+                              value={each_project['PR_ID']}
+                            >
+                              {each_project['PR_Name']}
+                            </option>
+                          );
+                        })}
+                      </select>
+                      <br />
+                      <br />
+                    </td>
+                    <td>
+                      <span>Is Active</span>
+                      <select
+                        onChange={handleChange('employeeIsActive')}
+                        value={values.employeeIsActive}
+                      >
+                        <option value={null}>--SELECT--</option>
+                        <option value={'true'}>Yes</option>
+                        <option value={'false'}>No</option>
+                      </select>
                       <br />
                       <br />
                     </td>
@@ -391,8 +470,6 @@ function Employee(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Employee Designation</span>
                       <input
@@ -404,6 +481,8 @@ function Employee(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Employee Salary</span>
                       <input
@@ -415,8 +494,6 @@ function Employee(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Date Of Joining</span>
                       <input
@@ -439,12 +516,52 @@ function Employee(props) {
                       <br />
                     </td>
                   </tr>
+                  <tr>
+                    <td>
+                      <span>Project</span>
+                      <select
+                        onChange={handleChange('employeeProjectID')}
+                        value={values.employeeProjectID}
+                      >
+                        <option value={null}>--SELECT--</option>
+                        {props.projects.projects?.map((each_project) => {
+                          return (
+                            <option
+                              key={each_project['PR_ID']}
+                              value={each_project['PR_ID']}
+                            >
+                              {each_project['PR_Name']}
+                            </option>
+                          );
+                        })}
+                      </select>
+                      <br />
+                      <br />
+                    </td>
+                    <td>
+                      <span>Is Active</span>
+                      <select
+                        onChange={handleChange('employeeIsActive')}
+                        value={values.employeeIsActive}
+                      >
+                        <option value={null}>--SELECT--</option>
+                        <option value={'true'}>Yes</option>
+                        <option value={'false'}>No</option>
+                      </select>
+                      <br />
+                      <br />
+                    </td>
+                  </tr>
                 </tbody>
               </table>
               <button type="submit" className="greenButton">
                 Save Changes
               </button>
-              <button type="button" className="redButton">
+              <button
+                type="button"
+                className="redButton"
+                onClick={handleDeleteEmployee}
+              >
                 Delete
               </button>
             </form>
@@ -456,12 +573,14 @@ function Employee(props) {
                 setAddModalShow(true);
                 setValues({
                   employeeID: '',
+                  employeeProjectID: '',
                   employeeName: '',
                   employeeCode: '',
                   employeeDesignation: '',
                   employeeSalary: '',
                   employeeDateOfJoining: '',
                   employeeDateOfExit: '',
+                  employeeIsActive: '',
                   selectedEmployee: null,
                 });
               }}
@@ -531,9 +650,11 @@ function Employee(props) {
 
 const mapStateToProps = (state) => ({
   employees: state.employees,
+  projects: state.projects,
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  set_all_projects: (projects) => dispatch(actions.set_all_projects(projects)),
   set_all_employees: (employees) =>
     dispatch(actions.set_all_employees(employees)),
   set_selected_employee: (employee) =>
