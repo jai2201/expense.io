@@ -22,7 +22,8 @@ export const GET_PROJECT_DETAILS =
 export const ADD_NEW_PROJECT = 'http://127.0.0.1:8080/api/post/project';
 export const EDIT_A_PROJECT = 'http://127.0.0.1:8080/api/put/project';
 export const DELETE_A_PROJECT = 'http://127.0.0.1:8080/api/delete/project';
-export const GET_ALL_EMPLOYEES = 'http://127.0.0.1:8080/api/get/employees';
+export const GET_ALL_EMPLOYEES_FOR_A_PROJECT =
+  'http://127.0.0.1:8080/api/get/employees/project';
 export const GET_EMPLOYEE_DETAILS =
   'http://127.0.0.1:8080/api/get/employee_details';
 export const ADD_NEW_EMPLOYEE = 'http://127.0.0.1:8080/api/post/employee';

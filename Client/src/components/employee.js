@@ -13,7 +13,7 @@ import * as CONSTANTS from '../utils/applicationConstants';
 import AddModal from '../common/addModal';
 import EditModal from '../common/editModal';
 
-function Employee(props) {
+function Employee({ projectID, ...props }) {
   const [filteredData, setFilteredData] = useState([]);
   const [values, setValues] = useState({
     employeeID: '',
@@ -23,7 +23,7 @@ function Employee(props) {
     employeeSalary: '',
     employeeDateOfJoining: '',
     employeeDateOfExit: '',
-    employeeProjectID: '',
+    employeeProjectID: projectID,
     employeeIsActive: '',
     selectedEmployee: null,
   });
@@ -106,11 +106,14 @@ function Employee(props) {
     setValues({ ...values, [name]: event.target.value });
   };
 
-  const fetchAllEmployees = () => {
+  const fetchAllEmployeesForAProject = () => {
     axios
-      .get(BACKEND_URLS.GET_ALL_EMPLOYEES, {
+      .get(BACKEND_URLS.GET_ALL_EMPLOYEES_FOR_A_PROJECT, {
         headers: {
           token: localStorage.getItem('token'),
+        },
+        params: {
+          project_id: projectID,
         },
       })
       .then((res) => {
@@ -123,26 +126,8 @@ function Employee(props) {
       });
   };
 
-  const fetchAllProjects = () => {
-    axios
-      .get(BACKEND_URLS.GET_ALL_PROJECTS, {
-        headers: {
-          token: localStorage.getItem('token'),
-        },
-      })
-      .then((res) => {
-        if (res.status === 200) {
-          props.set_all_projects(res.data.data);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   useEffect(() => {
-    fetchAllEmployees();
-    fetchAllProjects();
+    fetchAllEmployeesForAProject();
   }, []);
 
   useEffect(() => {
@@ -175,11 +160,11 @@ function Employee(props) {
         )
         .then((res) => {
           if (res.status == 200) {
-            fetchAllEmployees();
+            fetchAllEmployeesForAProject();
             setAddModalShow(false);
             setValues({
               employeeID: '',
-              employeeProjectID: '',
+              employeeProjectID: projectID,
               employeeName: '',
               employeeCode: '',
               employeeDesignation: '',
@@ -245,11 +230,11 @@ function Employee(props) {
           toast.success(`Successfully edited the employee details.`, {
             autoClose: 6000,
           });
-          fetchAllEmployees();
+          fetchAllEmployeesForAProject();
           setEditModalShow(false);
           setValues({
             employeeID: '',
-            employeeProjectID: '',
+            employeeProjectID: projectID,
             employeeName: '',
             employeeCode: '',
             employeeDesignation: '',
@@ -284,11 +269,11 @@ function Employee(props) {
           toast.success(`Successfully deleted the employee.`, {
             autoClose: 6000,
           });
-          fetchAllEmployees();
+          fetchAllEmployeesForAProject();
           setEditModalShow(false);
           setValues({
             employeeID: '',
-            employeeProjectID: '',
+            employeeProjectID: projectID,
             employeeName: '',
             employeeCode: '',
             employeeDesignation: '',
@@ -398,27 +383,6 @@ function Employee(props) {
                   </tr>
                   <tr>
                     <td>
-                      <span>Project</span>
-                      <select
-                        onChange={handleChange('employeeProjectID')}
-                        value={values.employeeProjectID}
-                      >
-                        <option value={null}>--SELECT--</option>
-                        {props.projects.projects?.map((each_project) => {
-                          return (
-                            <option
-                              key={each_project['PR_ID']}
-                              value={each_project['PR_ID']}
-                            >
-                              {each_project['PR_Name']}
-                            </option>
-                          );
-                        })}
-                      </select>
-                      <br />
-                      <br />
-                    </td>
-                    <td>
                       <span>Is Active</span>
                       <select
                         onChange={handleChange('employeeIsActive')}
@@ -518,27 +482,6 @@ function Employee(props) {
                   </tr>
                   <tr>
                     <td>
-                      <span>Project</span>
-                      <select
-                        onChange={handleChange('employeeProjectID')}
-                        value={values.employeeProjectID}
-                      >
-                        <option value={null}>--SELECT--</option>
-                        {props.projects.projects?.map((each_project) => {
-                          return (
-                            <option
-                              key={each_project['PR_ID']}
-                              value={each_project['PR_ID']}
-                            >
-                              {each_project['PR_Name']}
-                            </option>
-                          );
-                        })}
-                      </select>
-                      <br />
-                      <br />
-                    </td>
-                    <td>
                       <span>Is Active</span>
                       <select
                         onChange={handleChange('employeeIsActive')}
@@ -573,7 +516,7 @@ function Employee(props) {
                 setAddModalShow(true);
                 setValues({
                   employeeID: '',
-                  employeeProjectID: '',
+                  employeeProjectID: projectID,
                   employeeName: '',
                   employeeCode: '',
                   employeeDesignation: '',
@@ -650,11 +593,9 @@ function Employee(props) {
 
 const mapStateToProps = (state) => ({
   employees: state.employees,
-  projects: state.projects,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  set_all_projects: (projects) => dispatch(actions.set_all_projects(projects)),
   set_all_employees: (employees) =>
     dispatch(actions.set_all_employees(employees)),
   set_selected_employee: (employee) =>

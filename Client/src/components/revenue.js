@@ -13,12 +13,12 @@ import * as CONSTANTS from '../utils/applicationConstants';
 import AddModal from '../common/addModal';
 import EditModal from '../common/editModal';
 
-function Revenue(props) {
+function Revenue({ projectWorkOrderNumber, ...props }) {
   const [filteredData, setFilteredData] = useState([]);
   const [values, setValues] = useState({
     revenueID: '',
     customerInvoiceNumber: '',
-    projectWorkOrderNumber: '',
+    projectWorkOrderNumber: projectWorkOrderNumber,
     clientInvoiceNumber: '',
     clientInvoiceDate: '',
     basicValue: '',
@@ -109,11 +109,14 @@ function Revenue(props) {
     setValues({ ...values, [name]: event.target.value });
   };
 
-  const fetchAllRevenues = () => {
+  const fetchProjectRevenues = () => {
     axios
-      .get(BACKEND_URLS.GET_ALL_REVENUES, {
+      .get(BACKEND_URLS.GET_ALL_REVENUES_FOR_A_SPECIFIC_PROJECT, {
         headers: {
           token: localStorage.getItem('token'),
+        },
+        params: {
+          project_work_order_number: projectWorkOrderNumber,
         },
       })
       .then((res) => {
@@ -127,7 +130,7 @@ function Revenue(props) {
   };
 
   useEffect(() => {
-    fetchAllRevenues();
+    fetchProjectRevenues();
   }, []);
 
   useEffect(() => {
@@ -161,12 +164,12 @@ function Revenue(props) {
         )
         .then((res) => {
           if (res.status == 200) {
-            fetchAllRevenues();
+            fetchProjectRevenues();
             setAddModalShow(false);
             setValues({
               revenueID: '',
               customerInvoiceNumber: '',
-              projectWorkOrderNumber: '',
+              projectWorkOrderNumber: projectWorkOrderNumber,
               clientInvoiceNumber: '',
               clientInvoiceDate: '',
               basicValue: '',
@@ -233,12 +236,12 @@ function Revenue(props) {
           toast.success(`Successfully edited the revenue details.`, {
             autoClose: 6000,
           });
-          fetchAllRevenues();
+          fetchProjectRevenues();
           setEditModalShow(false);
           setValues({
             revenueID: '',
             customerInvoiceNumber: '',
-            projectWorkOrderNumber: '',
+            projectWorkOrderNumber: projectWorkOrderNumber,
             clientInvoiceNumber: '',
             clientInvoiceDate: '',
             basicValue: '',
@@ -273,12 +276,12 @@ function Revenue(props) {
           toast.success(`Successfully deleted the revenue.`, {
             autoClose: 6000,
           });
-          fetchAllRevenues();
+          fetchProjectRevenues();
           setEditModalShow(false);
           setValues({
             revenueID: '',
             customerInvoiceNumber: '',
-            projectWorkOrderNumber: '',
+            projectWorkOrderNumber: projectWorkOrderNumber,
             clientInvoiceNumber: '',
             clientInvoiceDate: '',
             basicValue: '',
@@ -330,17 +333,6 @@ function Revenue(props) {
                       <br />
                     </td>
                     <td>
-                      <span>Project Work Order Number</span>
-                      <input
-                        type="text"
-                        required
-                        value={values.projectWorkOrderNumber}
-                        onChange={handleChange('projectWorkOrderNumber')}
-                      />
-                      <br />
-                      <br />
-                    </td>
-                    <td>
                       <span>Client Invoice Number</span>
                       <input
                         type="text"
@@ -351,9 +343,6 @@ function Revenue(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-
-                  <tr>
                     <td>
                       <span>Client Invoice Date</span>
                       <input
@@ -365,6 +354,9 @@ function Revenue(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+
+                  <tr>
                     <td>
                       <span>Basic Value</span>
                       <input
@@ -387,8 +379,6 @@ function Revenue(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>SGST </span>
                       <input
@@ -400,6 +390,8 @@ function Revenue(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>IGST </span>
                       <input
@@ -451,17 +443,6 @@ function Revenue(props) {
                       <br />
                     </td>
                     <td>
-                      <span>Project Work Order Number</span>
-                      <input
-                        type="text"
-                        required
-                        value={values.projectWorkOrderNumber}
-                        onChange={handleChange('projectWorkOrderNumber')}
-                      />
-                      <br />
-                      <br />
-                    </td>
-                    <td>
                       <span>Client Invoice Number</span>
                       <input
                         type="text"
@@ -472,9 +453,6 @@ function Revenue(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-
-                  <tr>
                     <td>
                       <span>Client Invoice Date</span>
                       <input
@@ -486,6 +464,9 @@ function Revenue(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+
+                  <tr>
                     <td>
                       <span>Basic Value</span>
                       <input
@@ -508,8 +489,6 @@ function Revenue(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>SGST </span>
                       <input
@@ -521,6 +500,8 @@ function Revenue(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>IGST </span>
                       <input
@@ -562,7 +543,7 @@ function Revenue(props) {
                 setValues({
                   revenueID: '',
                   customerInvoiceNumber: '',
-                  projectWorkOrderNumber: '',
+                  projectWorkOrderNumber: projectWorkOrderNumber,
                   clientInvoiceNumber: '',
                   clientInvoiceDate: '',
                   basicValue: '',

@@ -43,12 +43,11 @@ const RenderOptionsForExpenseIntervals = () => {
   );
 };
 
-function Expense(props) {
+function Expense({ projectID, ...props }) {
   const [filteredData, setFilteredData] = useState([]);
   const [values, setValues] = useState({
     expenseID: '',
-    expenseProjectID: '',
-    expenseProject: '',
+    expenseProjectID: projectID,
     expenseType: '',
     expenseCode: '',
     expenseCodeID: '',
@@ -179,34 +178,19 @@ function Expense(props) {
     setValues({ ...values, [name]: event.target.value });
   };
 
-  const fetchAllExpenses = () => {
+  const fetchProjectExpenses = () => {
     axios
-      .get(BACKEND_URLS.GET_ALL_EXPENSES, {
+      .get(BACKEND_URLS.GET_ALL_EXPENSES_FOR_A_PROJECT, {
         headers: {
           token: localStorage.getItem('token'),
+        },
+        params: {
+          project_id: projectID,
         },
       })
       .then((res) => {
         if (res.status === 200) {
           props.set_all_expenses(res.data.data);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const fetchAllProjects = () => {
-    axios
-      .get(BACKEND_URLS.GET_ALL_PROJECTS, {
-        headers: {
-          token: localStorage.getItem('token'),
-        },
-      })
-      .then((res) => {
-        console.log(res);
-        if (res.status === 200) {
-          props.set_all_projects(res.data.data);
         }
       })
       .catch((err) => {
@@ -232,9 +216,8 @@ function Expense(props) {
   };
 
   useEffect(() => {
-    fetchAllProjects();
     fetchAllPartners();
-    fetchAllExpenses();
+    fetchProjectExpenses();
   }, []);
 
   useEffect(() => {
@@ -276,12 +259,11 @@ function Expense(props) {
         )
         .then((res) => {
           if (res.status == 200) {
-            fetchAllExpenses();
+            fetchProjectExpenses();
             setAddModalShow(false);
             setValues({
               expenseID: '',
-              expenseProjectID: '',
-              expenseProject: '',
+              expenseProjectID: projectID,
               expenseType: '',
               expenseCode: '',
               expenseCodeID: '',
@@ -316,7 +298,6 @@ function Expense(props) {
     setValues({
       expenseID: expense['E_ID'],
       expenseProjectID: expense['E_PR_ID'],
-      expenseProject: expense['PR_Name'],
       expenseType: expense['E_Type'],
       expenseCode: expense['EC_Name'],
       expenseCodeID: expense['E_EC_ID'],
@@ -377,12 +358,11 @@ function Expense(props) {
           toast.success(`Successfully edited the expense details.`, {
             autoClose: 6000,
           });
-          fetchAllExpenses();
+          fetchProjectExpenses();
           setEditModalShow(false);
           setValues({
             expenseID: '',
-            expenseProjectID: '',
-            expenseProject: '',
+            expenseProjectID: projectID,
             expenseType: '',
             expenseCode: '',
             expenseCodeID: '',
@@ -427,12 +407,11 @@ function Expense(props) {
           toast.success(`Successfully deleted the expense.`, {
             autoClose: 6000,
           });
-          fetchAllExpenses();
+          fetchProjectExpenses();
           setEditModalShow(false);
           setValues({
             expenseID: '',
-            expenseProjectID: '',
-            expenseProject: '',
+            expenseProjectID: projectID,
             expenseType: '',
             expenseCode: '',
             expenseCodeID: '',
@@ -518,27 +497,6 @@ function Expense(props) {
                   </tr>
                   <tr>
                     <td>
-                      <span>Project</span>
-                      <select
-                        onChange={handleChange('expenseProjectID')}
-                        value={values.expenseProjectID}
-                      >
-                        <option value={null}>--SELECT--</option>
-                        {props.projects.projects?.map((each_project) => {
-                          return (
-                            <option
-                              key={each_project['PR_ID']}
-                              value={each_project['PR_ID']}
-                            >
-                              {each_project['PR_Name']}
-                            </option>
-                          );
-                        })}
-                      </select>
-                      <br />
-                      <br />
-                    </td>
-                    <td>
                       <span>Partner</span>
                       <select
                         onChange={handleChange('expensePartnerID')}
@@ -566,6 +524,17 @@ function Expense(props) {
                         required
                         value={values.expenseDate}
                         onChange={handleChange('expenseDate')}
+                      />
+                      <br />
+                      <br />
+                    </td>
+                    <td>
+                      <span>Invoice Number</span>
+                      <input
+                        type="text"
+                        value={values.expenseInvoiceNumber}
+                        onChange={handleChange('expenseInvoiceNumber')}
+                        required
                       />
                       <br />
                       <br />
@@ -598,17 +567,6 @@ function Expense(props) {
                   ) : null}
                   <tr>
                     <td>
-                      <span>Invoice Number</span>
-                      <input
-                        type="text"
-                        value={values.expenseInvoiceNumber}
-                        onChange={handleChange('expenseInvoiceNumber')}
-                        required
-                      />
-                      <br />
-                      <br />
-                    </td>
-                    <td>
                       <span>Invoice Date</span>
                       <input
                         type="date"
@@ -630,8 +588,6 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Basic Value</span>
                       <input
@@ -643,6 +599,8 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>CGST</span>
                       <input
@@ -665,8 +623,6 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>IGST</span>
                       <br></br>
@@ -679,6 +635,8 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Total Tax</span>
                       <input
@@ -743,27 +701,6 @@ function Expense(props) {
                   </tr>
                   <tr>
                     <td>
-                      <span>Project</span>
-                      <select
-                        onChange={handleChange('expenseProjectID')}
-                        value={values.expenseProjectID}
-                      >
-                        <option value={null}>--SELECT--</option>
-                        {props.projects.projects?.map((each_project) => {
-                          return (
-                            <option
-                              key={each_project['PR_ID']}
-                              value={each_project['PR_ID']}
-                            >
-                              {each_project['PR_Name']}
-                            </option>
-                          );
-                        })}
-                      </select>
-                      <br />
-                      <br />
-                    </td>
-                    <td>
                       <span>Partner</span>
                       <select
                         onChange={handleChange('expensePartnerID')}
@@ -791,6 +728,17 @@ function Expense(props) {
                         required
                         value={values.expenseDate}
                         onChange={handleChange('expenseDate')}
+                      />
+                      <br />
+                      <br />
+                    </td>
+                    <td>
+                      <span>Invoice Number</span>
+                      <input
+                        type="text"
+                        value={values.expenseInvoiceNumber}
+                        onChange={handleChange('expenseInvoiceNumber')}
+                        required
                       />
                       <br />
                       <br />
@@ -823,17 +771,6 @@ function Expense(props) {
                   ) : null}
                   <tr>
                     <td>
-                      <span>Invoice Number</span>
-                      <input
-                        type="text"
-                        value={values.expenseInvoiceNumber}
-                        onChange={handleChange('expenseInvoiceNumber')}
-                        required
-                      />
-                      <br />
-                      <br />
-                    </td>
-                    <td>
                       <span>Invoice Date</span>
                       <input
                         type="date"
@@ -855,8 +792,6 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>Basic Value</span>
                       <input
@@ -868,6 +803,8 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>CGST</span>
                       <input
@@ -890,8 +827,6 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <span>IGST</span>
                       <br></br>
@@ -904,6 +839,8 @@ function Expense(props) {
                       <br />
                       <br />
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <span>Total Tax</span>
                       <input
@@ -937,8 +874,7 @@ function Expense(props) {
                 setAddModalShow(true);
                 setValues({
                   expenseID: '',
-                  expenseProjectID: '',
-                  expenseProject: '',
+                  expenseProjectID: projectID,
                   expenseType: '',
                   expenseCode: '',
                   expenseCodeID: '',
@@ -1025,14 +961,12 @@ function Expense(props) {
 
 const mapStateToProps = (state) => ({
   expenses: state.expenses,
-  projects: state.projects,
   partners: state.partners,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   set_all_expenses: (expenses) => dispatch(actions.set_all_expenses(expenses)),
   set_all_partners: (partners) => dispatch(actions.set_all_partners(partners)),
-  set_all_projects: (projects) => dispatch(actions.set_all_projects(projects)),
   set_selected_expense: (expense) =>
     dispatch(actions.set_expense_details(expense)),
 });

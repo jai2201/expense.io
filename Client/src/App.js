@@ -47,16 +47,16 @@ const App = () => {
             path={APPLICATION_URLS.PROJECTS_PAGE}
             element={<Project />}
           />
-          <Route
+          {/* <Route
             exact="true"
             path={APPLICATION_URLS.EMPLOYEE_PAGE}
             element={<Employee />}
-          />
-          <Route
+          /> */}
+          {/* <Route
             exact="true"
             path={APPLICATION_URLS.EXPENSES_PAGE}
             element={<Expense />}
-          />
+          /> */}
           <Route
             exact="true"
             path={APPLICATION_URLS.PARTNER_PAGE}
@@ -67,16 +67,16 @@ const App = () => {
             path={APPLICATION_URLS.USER_PAGE}
             element={<User />}
           />
-          <Route
+          {/* <Route
             exact="true"
             path={APPLICATION_URLS.PAYMENT_PAGE}
             element={<Payment />}
-          />
-          <Route
+          /> */}
+          {/* <Route
             exact="true"
             path={APPLICATION_URLS.REVENUE_PAGE}
             element={<Revenue />}
-          />
+          /> */}
           <Route
             exact="true"
             path={APPLICATION_URLS.PROJECT_DETAILS_PAGE}

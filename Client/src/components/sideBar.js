@@ -25,21 +25,21 @@ function Sidebar(props) {
             image={require('../static/images/dummy.png')}
             title="Home"
           />
-          <MenuItem
+          {/* <MenuItem
             to={APPLICATION_URLS.EXPENSES_PAGE}
             image={require('../static/images/dummy.png')}
             title="Expenses"
-          />
-          <MenuItem
+          /> */}
+          {/* <MenuItem
             to={APPLICATION_URLS.PAYMENT_PAGE}
             image={require('../static/images/dummy.png')}
             title="Payments"
-          />
-          <MenuItem
+          /> */}
+          {/* <MenuItem
             to={APPLICATION_URLS.REVENUE_PAGE}
             image={require('../static/images/dummy.png')}
             title="Revenues"
-          />
+          /> */}
           <MenuItem
             to={APPLICATION_URLS.PROJECTS_PAGE}
             image={require('../static/images/dummy.png')}
@@ -50,11 +50,11 @@ function Sidebar(props) {
             image={require('../static/images/dummy.png')}
             title="Partners"
           />
-          <MenuItem
+          {/* <MenuItem
             to={APPLICATION_URLS.EMPLOYEE_PAGE}
             image={require('../static/images/dummy.png')}
             title="Employees"
-          />
+          /> */}
           <MenuItem
             to={APPLICATION_URLS.USER_PAGE}
             image={require('../static/images/dummy.png')}

@@ -3,12 +3,18 @@ import React, { useState, useEffect, Fragment } from 'react';
 import '../static/css/home.css';
 
 import axios from 'axios';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 import * as BACKEND_URLS from '../utils/backendURLs';
 
 import { connect } from 'react-redux';
 import * as actions from '../store/actions/actions';
 import { useParams } from 'react-router-dom';
+import Expense from './expense';
+import Revenue from './revenue';
+import Payment from './payment';
+import Employee from './employee';
 
 function ProjectDetail(props) {
   const params = useParams();
@@ -31,66 +37,6 @@ function ProjectDetail(props) {
       .then((res) => {
         if (res.status === 200) {
           setProjectDetails(res.data.data);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const fetchProjectRevenues = () => {
-    axios
-      .get(BACKEND_URLS.GET_ALL_REVENUES_FOR_A_SPECIFIC_PROJECT, {
-        headers: {
-          token: localStorage.getItem('token'),
-        },
-        params: {
-          project_id: params.project_id,
-        },
-      })
-      .then((res) => {
-        if (res.status === 200) {
-          setProjectRevenues(res.data.data);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const fetchProjectExpenses = () => {
-    axios
-      .get(BACKEND_URLS.GET_ALL_EXPENSES_FOR_A_PROJECT, {
-        headers: {
-          token: localStorage.getItem('token'),
-        },
-        params: {
-          project_id: params.project_id,
-        },
-      })
-      .then((res) => {
-        if (res.status === 200) {
-          setProjectExpenses(res.data.data);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const fetchProjectPayments = () => {
-    axios
-      .get(BACKEND_URLS.GET_ALL_PAYMENTS_FOR_A_PROJECT, {
-        headers: {
-          token: localStorage.getItem('token'),
-        },
-        params: {
-          project_id: params.project_id,
-        },
-      })
-      .then((res) => {
-        if (res.status === 200) {
-          setProjectPayments(res.data.data);
         }
       })
       .catch((err) => {
@@ -138,6 +84,30 @@ function ProjectDetail(props) {
                 Project Execution Start Date -
                 {projectDetails[0]['PR_ExecutionStartDate']}
               </h6>
+              <Tabs>
+                <TabList>
+                  <Tab>Expenses</Tab>
+                  <Tab>Revenues</Tab>
+                  <Tab>Payments</Tab>
+                  <Tab>Employees</Tab>
+                </TabList>
+                <TabPanel>
+                  <Expense projectID={projectDetails[0]['PR_ID']} />
+                </TabPanel>
+                <TabPanel>
+                  <Revenue
+                    projectWorkOrderNumber={
+                      projectDetails[0]['PR_WorkOrderNumber']
+                    }
+                  />
+                </TabPanel>
+                <TabPanel>
+                  <Payment projectID={projectDetails[0]['PR_ID']} />
+                </TabPanel>
+                <TabPanel>
+                  <Employee projectID={projectDetails[0]['PR_ID']} />
+                </TabPanel>
+              </Tabs>
             </>
           ) : null}
         </div>

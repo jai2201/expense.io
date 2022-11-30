@@ -13,7 +13,7 @@ import * as CONSTANTS from '../utils/applicationConstants';
 import AddModal from '../common/addModal';
 import EditModal from '../common/editModal';
 
-function Payment(props) {
+function Payment({ projectID, ...props }) {
   const [filteredData, setFilteredData] = useState([]);
   const [values, setValues] = useState({
     paymentID: '',
@@ -99,11 +99,14 @@ function Payment(props) {
     setValues({ ...values, [name]: event.target.value });
   };
 
-  const fetchAllPayments = () => {
+  const fetchProjectPayments = () => {
     axios
-      .get(BACKEND_URLS.GET_ALL_PAYMENTS, {
+      .get(BACKEND_URLS.GET_ALL_PAYMENTS_FOR_A_PROJECT, {
         headers: {
           token: localStorage.getItem('token'),
+        },
+        params: {
+          project_id: projectID,
         },
       })
       .then((res) => {
@@ -117,7 +120,7 @@ function Payment(props) {
   };
 
   useEffect(() => {
-    fetchAllPayments();
+    fetchProjectPayments();
   }, []);
 
   useEffect(() => {
@@ -133,6 +136,7 @@ function Payment(props) {
           {
             payment: {
               payment_type: values.paymentType,
+              project_id: projectID,
               transaction_date: values.transactionDate,
               transaction_id: values.transactionID,
               bank_reference_number: values.bankReferenceNumber,
@@ -148,7 +152,7 @@ function Payment(props) {
         )
         .then((res) => {
           if (res.status == 200) {
-            fetchAllPayments();
+            fetchProjectPayments();
             setAddModalShow(false);
             setValues({
               paymentID: '',
@@ -192,6 +196,7 @@ function Payment(props) {
         {
           payment: {
             payment_id: values.paymentID,
+            project_id: projectID,
             payment_type: values.paymentType,
             transaction_date: values.transactionDate,
             transaction_id: values.transactionID,
@@ -211,7 +216,7 @@ function Payment(props) {
           toast.success(`Successfully edited the payment details.`, {
             autoClose: 6000,
           });
-          fetchAllPayments();
+          fetchProjectPayments();
           setEditModalShow(false);
           setValues({
             paymentID: '',
@@ -248,7 +253,7 @@ function Payment(props) {
           toast.success(`Successfully deleted the payment.`, {
             autoClose: 6000,
           });
-          fetchAllPayments();
+          fetchProjectPayments();
           setEditModalShow(false);
           setValues({
             paymentID: '',
