@@ -9,6 +9,11 @@ router.get(routeNames.GET_ALL_REVENUES, [
   RevenueService.GET_allRevenues,
 ]);
 
+router.get(routeNames.GET_ALL_REVENUES_FOR_A_SPECIFIC_PROJECT, [
+  authValidator,
+  RevenueService.GET_getAllRevenuesForASpecifcProject,
+]);
+
 router.get(routeNames.GET_REVENUE_DETAILS, [
   authValidator,
   RevenueService.GET_revenueDetails,

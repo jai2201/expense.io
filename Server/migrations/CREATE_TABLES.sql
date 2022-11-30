@@ -199,6 +199,7 @@ select * from "Expense"
 CREATE TABLE "Payment"(
 	"P_ID" bigserial primary key,
 	"P_Type" varchar (50),
+	"P_PR_ID" bigint REFERENCES "Project" ("PR_ID") NOT NULL,
 	"P_TransactionDate" date,
 	"P_TransactionID" varchar (200),
 	"P_TotalAmount" bigint,
@@ -209,21 +210,3 @@ CREATE TABLE "Payment"(
 	"P_UpdatedBy" BIGSERIAL REFERENCES "User" ("U_ID") NOT NULL,
 	"P_UpdatedOn" DATE NOT NULL
 )
-
-create table "Revenue"(
-	"R_ID" BIGSERIAL primary key,
-	"R_CustomerInvoiceNumber" varchar (100),
-	"R_ProjectWorkOrderNumber" varchar(100),
-	"R_ClientInvoiceDate" date,
-	"R_ClientInvoiceNumber" varchar(100),
-	"R_BasicValue" bigint,
-	"R_CGST" bigint),
-	"R_SGST" bigint,
-	"R_IGST" bigint,
-	"R_TotalTax" bigint,
-	"R_CreatedBy" BIGSERIAL REFERENCES "User" ("U_ID") NOT NULL,
-	"R_CreatedOn" DATE NOT NULL,
-	"R_UpdatedBy" BIGSERIAL REFERENCES "User" ("U_ID") NOT NULL,
-	"R_UpdatedOn" DATE NOT NULL
-)
-

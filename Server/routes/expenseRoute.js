@@ -9,6 +9,11 @@ router.get(routeNames.GET_ALL_EXPENSES, [
   ExpenseService.GET_allExpenses,
 ]);
 
+router.get(routeNames.GET_ALL_EXPENSES_FOR_A_PROJECT, [
+  authValidator,
+  ExpenseService.GET_getAllExpensesForASpecificProject,
+]);
+
 router.get(routeNames.GET_EXPENSE_DETAILS, [
   authValidator,
   ExpenseService.GET_expenseDetails,

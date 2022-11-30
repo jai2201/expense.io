@@ -21,6 +21,7 @@ module.exports = Object.freeze({
   EDIT_A_EXPENSE: '/put/expense',
   DELETE_A_EXPENSE: '/delete/expense',
   GET_ALL_EMPLOYEES: '/get/employees',
+  GET_ALL_EMPLOYEES_FOR_A_PROJECT: '/get/employees/project',
   GET_EMPLOYEE_DETAILS: '/get/employee_details',
   ADD_NEW_EMPLOYEE: '/post/employee',
   EDIT_A_EMPLOYEE: '/put/employee',

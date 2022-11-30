@@ -127,3 +127,10 @@ error: Nov-12-2022 13:42:39: 	GET: Failed to fetch all revenues for the project 
 error: Nov-12-2022 18:38:47: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | TypeError: Cannot read properties of undefined (reading 'getProjectDetails')
 error: Nov-12-2022 18:39:59: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | ReferenceError: _ is not defined
 error: Nov-12-2022 18:40:25: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | ReferenceError: _ is not defined
+error: Nov-15-2022 07:39:52: 	GET: Failed to fetch all revenues for the project : undefined | user_id: 1 | TypeError: RevenueDao.getProjectDetails is not a function
+error: Nov-15-2022 07:40:13: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | TypeError: RevenueDao.getProjectDetails is not a function
+error: Nov-15-2022 07:40:16: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | TypeError: RevenueDao.getProjectDetails is not a function
+error: Nov-15-2022 07:41:26: 	GET: Failed to fetch all revenues for the project : 1 | user_id: 1 | TypeError: RevenueDao.getProjectDetails is not a function
+error: Nov-15-2022 07:42:39: 	GET: Failed to fetch all revenues for the project : 99034834 | user_id: 1 | ReferenceError: DashboardDao is not defined
+error: Nov-15-2022 07:42:45: 	GET: Failed to fetch all revenues for the project : 99034834 | user_id: 1 | ReferenceError: DashboardDao is not defined
+error: Nov-15-2022 07:42:54: 	GET: Failed to fetch all revenues for the project : 99034834 | user_id: 1 | ReferenceError: DashboardDao is not defined

@@ -16,6 +16,24 @@ module.exports.GET_allEmployees = async (httpRequest, httpResponse) => {
   }
 };
 
+module.exports.GET_allEmployeesForAProject = async (
+  httpRequest,
+  httpResponse
+) => {
+  const { decoded } = httpRequest.headers;
+  const user_id = decoded.UserID;
+  try {
+    const project_id = httpRequest.query.project_id;
+    const result = await EmployeeDao.getAllEmployeesForAProject(project_id);
+    return _200(httpResponse, result);
+  } catch (err) {
+    return _error(httpResponse, {
+      type: 'generic',
+      message: err.message,
+    });
+  }
+};
+
 module.exports.GET_employeeDetails = async (httpRequest, httpResponse) => {
   const { decoded } = httpRequest.headers;
   const user_id = decoded.UserID;

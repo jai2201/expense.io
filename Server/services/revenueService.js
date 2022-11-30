@@ -1,6 +1,6 @@
 const { _200, _error } = require('../common/httpHelper');
 const logger = require('../common/logger');
-const { RevenueDao } = require('../dao/index');
+const { RevenueDao, ExpenseDao } = require('../dao/index');
 
 module.exports.GET_allRevenues = async (httpRequest, httpResponse) => {
   const { decoded } = httpRequest.headers;
@@ -12,6 +12,27 @@ module.exports.GET_allRevenues = async (httpRequest, httpResponse) => {
     logger.error(
       `GET: Failed to fetch all revenues | user_id: ${user_id} | ${err}`
     );
+    return _error(httpResponse, {
+      type: 'generic',
+      message: err.message,
+    });
+  }
+};
+
+module.exports.GET_getAllRevenuesForASpecifcProject = async (
+  httpRequest,
+  httpResponse
+) => {
+  const { decoded } = httpRequest.headers;
+  const user_id = decoded.UserID;
+  const project_work_order_number = httpRequest.query.project_work_order_number;
+  try {
+    const result = await RevenueDao.getAllRevenuesForASpecificWorkOrderNumber(
+      project_work_order_number
+    );
+    return _200(httpResponse, result);
+  } catch (err) {
+    console.log(err);
     return _error(httpResponse, {
       type: 'generic',
       message: err.message,

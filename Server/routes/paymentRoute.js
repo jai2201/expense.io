@@ -9,6 +9,11 @@ router.get(routeNames.GET_ALL_PAYMENTS, [
   PaymentService.GET_allPayments,
 ]);
 
+router.get(routeNames.GET_ALL_PAYMENTS_FOR_A_PROJECT, [
+  authValidator,
+  PaymentService.GET_getAllPaymentsForASpecificProject,
+]);
+
 router.get(routeNames.GET_PAYMENT_DETAILS, [
   authValidator,
   PaymentService.GET_paymentDetails,

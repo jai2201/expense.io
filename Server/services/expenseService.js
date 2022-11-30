@@ -19,6 +19,27 @@ module.exports.GET_allExpenses = async (httpRequest, httpResponse) => {
   }
 };
 
+module.exports.GET_getAllExpensesForASpecificProject = async (
+  httpRequest,
+  httpResponse
+) => {
+  const { decoded } = httpRequest.headers;
+  const user_id = decoded.UserID;
+  const project_id = httpRequest.query.project_id;
+  try {
+    const result = await ExpenseDao.getAllExpensesForAProject(project_id);
+    return _200(httpResponse, result);
+  } catch (err) {
+    logger.error(
+      `GET: Failed to fetch all expense for the project : ${project_id} | user_id: ${user_id} | ${err}`
+    );
+    return _error(httpResponse, {
+      type: 'generic',
+      message: err.message,
+    });
+  }
+};
+
 module.exports.GET_expenseDetails = async (httpRequest, httpResponse) => {
   const { decoded } = httpRequest.headers;
   const user_id = decoded.UserID;

@@ -10,6 +10,20 @@ module.exports.getAllRevenues = async () => {
   }
 };
 
+module.exports.getAllRevenuesForASpecificWorkOrderNumber = async (
+  project_work_order_number
+) => {
+  try {
+    const result = await pool.query(
+      RevenueQuery.GET_ALL_REVENUES_FOR_A_PROJECT,
+      [project_work_order_number]
+    );
+    return result.rows;
+  } catch (err) {
+    throw err;
+  }
+};
+
 module.exports.getRevenueDetails = async (revenue_id) => {
   try {
     const result = await pool.query(RevenueQuery.GET_REVENUE_DETAILS, [

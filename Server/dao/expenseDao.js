@@ -10,6 +10,18 @@ module.exports.getAllExpenses = async () => {
   }
 };
 
+module.exports.getAllExpensesForAProject = async (project_id) => {
+  try {
+    const result = await pool.query(
+      ExpenseQuery.GET_ALL_EXPENSES_FOR_A_PROJECT,
+      [project_id]
+    );
+    return result.rows;
+  } catch (err) {
+    throw err;
+  }
+};
+
 module.exports.getExpenseDetails = async (expense_id) => {
   try {
     const result = await pool.query(ExpenseQuery.GET_EXPENSE_DETAILS, [

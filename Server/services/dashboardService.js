@@ -1,6 +1,12 @@
 const { _200, _error } = require('../common/httpHelper');
 const logger = require('../common/logger');
-const { DashboardDao, ProjectDao, RevenueDao } = require('../dao/index');
+const {
+  DashboardDao,
+  ProjectDao,
+  RevenueDao,
+  ExpenseDao,
+} = require('../dao/index');
+const _ = require('underscore');
 
 module.exports.GET_getDashboardDetails = async (httpRequest, httpResponse) => {
   const { decoded } = httpRequest.headers;
@@ -18,19 +24,39 @@ module.exports.GET_getDashboardDetails = async (httpRequest, httpResponse) => {
         await DashboardDao.getTotalAmountOfRevenueForASpecificWorkOrderNumber(
           listOfAllProjects[i]['PR_WorkOrderNumber']
         );
+      const expenses_for_the_project =
+        await ExpenseDao.getAllExpensesForAProject(
+          listOfAllProjects[i]['PR_ID']
+        );
+      const revenues_for_the_project =
+        await RevenueDao.getAllRevenuesForASpecificWorkOrderNumber(
+          listOfAllProjects[i]['PR_WorkOrderNumber']
+        );
+      const list_of_expense_invoice_numbers = _.pluck(
+        expenses_for_the_project,
+        'E_InvoiceNumber'
+      );
+      const list_of_customer_invoice_numbers = _.pluck(
+        revenues_for_the_project,
+        'R_CustomerInvoiceNumber'
+      );
+      const list_of_invoice_numbers = list_of_expense_invoice_numbers.concat(
+        list_of_customer_invoice_numbers
+      );
       data['totalMappedPayment'] =
         await DashboardDao.getTotalPaymentAmountForAProject(
-          listOfAllProjects[i],
+          listOfAllProjects[i]['PR_ID'],
+          list_of_invoice_numbers,
           true
         );
       data['totalUnmappedPayment'] =
         await DashboardDao.getTotalPaymentAmountForAProject(
-          listOfAllProjects[i],
+          listOfAllProjects[i]['PR_ID'],
+          null,
           false
         );
       result.push(data);
     }
-    console.log(result);
     return _200(httpResponse, result);
   } catch (err) {
     return _error(httpResponse, {
@@ -53,78 +79,6 @@ module.exports.GET_getAllExpensesForAMonth = async (
   } catch (err) {
     logger.error(
       `GET: Failed to fetch all expense for the month : ${month} | user_id: ${user_id} | ${err}`
-    );
-    return _error(httpResponse, {
-      type: 'generic',
-      message: err.message,
-    });
-  }
-};
-
-module.exports.GET_getAllExpensesForASpecificProject = async (
-  httpRequest,
-  httpResponse
-) => {
-  const { decoded } = httpRequest.headers;
-  const user_id = decoded.UserID;
-  const project_id = httpRequest.query.project_id;
-  try {
-    const result = await DashboardDao.getAllExpensesForAProject(project_id);
-    return _200(httpResponse, result);
-  } catch (err) {
-    logger.error(
-      `GET: Failed to fetch all expense for the project : ${project_id} | user_id: ${user_id} | ${err}`
-    );
-    return _error(httpResponse, {
-      type: 'generic',
-      message: err.message,
-    });
-  }
-};
-
-module.exports.GET_getAllRevenuesForASpecifcProject = async (
-  httpRequest,
-  httpResponse
-) => {
-  const { decoded } = httpRequest.headers;
-  const user_id = decoded.UserID;
-  const project_id = httpRequest.query.project_id;
-  try {
-    const project_details = await ProjectDao.getProjectDetails(project_id);
-    const project_work_order_number = project_details[0]['PR_WorkOrderNumber'];
-    const result = await DashboardDao.getAllRevenuesForASpecificWorkOrderNumber(
-      project_work_order_number
-    );
-    return _200(httpResponse, result);
-  } catch (err) {
-    logger.error(
-      `GET: Failed to fetch all revenues for the project : ${project_id} | user_id: ${user_id} | ${err}`
-    );
-    return _error(httpResponse, {
-      type: 'generic',
-      message: err.message,
-    });
-  }
-};
-
-module.exports.GET_getAllPaymentsForASpecificProject = async (
-  httpRequest,
-  httpResponse
-) => {
-  const { decoded } = httpRequest.headers;
-  const user_id = decoded.UserID;
-  const project_id = httpRequest.query.project_id;
-  try {
-    const project_details = await ProjectDao.getProjectDetails(project_id);
-    const list_of_payments_for_invoice_numbers_of_a_project =
-      await DashboardDao.getAllPaymentsForAProject(project_details);
-    return _200(
-      httpResponse,
-      list_of_payments_for_invoice_numbers_of_a_project
-    );
-  } catch (err) {
-    logger.error(
-      `GET: Failed to fetch all revenues for the project : ${project_id} | user_id: ${user_id} | ${err}`
     );
     return _error(httpResponse, {
       type: 'generic',

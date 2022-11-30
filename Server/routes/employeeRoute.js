@@ -9,6 +9,11 @@ router.get(routeNames.GET_ALL_EMPLOYEES, [
   EmployeeService.GET_allEmployees,
 ]);
 
+router.get(routeNames.GET_ALL_EMPLOYEES_FOR_A_PROJECT, [
+  authValidator,
+  EmployeeService.GET_allEmployeesForAProject,
+]);
+
 router.get(routeNames.GET_EMPLOYEE_DETAILS, [
   authValidator,
   EmployeeService.GET_employeeDetails,

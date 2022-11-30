@@ -1,6 +1,11 @@
 const { _200, _error } = require('../common/httpHelper');
 const logger = require('../common/logger');
-const { PaymentDao, ExpenseDao, RevenueDao } = require('../dao/index');
+const {
+  PaymentDao,
+  ExpenseDao,
+  RevenueDao,
+  ProjectDao,
+} = require('../dao/index');
 
 module.exports.GET_allPayments = async (httpRequest, httpResponse) => {
   const { decoded } = httpRequest.headers;
@@ -11,6 +16,27 @@ module.exports.GET_allPayments = async (httpRequest, httpResponse) => {
   } catch (err) {
     logger.error(
       `GET: Failed to fetch all payments | user_id: ${user_id} | ${err}`
+    );
+    return _error(httpResponse, {
+      type: 'generic',
+      message: err.message,
+    });
+  }
+};
+
+module.exports.GET_getAllPaymentsForASpecificProject = async (
+  httpRequest,
+  httpResponse
+) => {
+  const { decoded } = httpRequest.headers;
+  const user_id = decoded.UserID;
+  const project_id = httpRequest.query.project_id;
+  try {
+    const result = await PaymentDao.getAllPaymentsForAProject(project_id);
+    return _200(httpResponse, result);
+  } catch (err) {
+    logger.error(
+      `GET: Failed to fetch all revenues for the project : ${project_id} | user_id: ${user_id} | ${err}`
     );
     return _error(httpResponse, {
       type: 'generic',
@@ -65,6 +91,7 @@ module.exports.POST_addPayment = async (httpRequest, httpResponse) => {
       httpRequest.body.payment.invoice_number,
       httpRequest.body.payment.total_amount,
       is_mapped,
+      httpRequest.body.payment.project_id,
       user_id,
     ];
 
@@ -110,6 +137,7 @@ module.exports.PUT_editPaymentDetails = async (httpRequest, httpResponse) => {
       httpRequest.body.payment.invoice_number,
       httpRequest.body.payment.total_amount,
       is_mapped,
+      httpRequest.body.payment.project_id,
       user_id,
     ];
 

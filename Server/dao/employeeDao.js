@@ -10,6 +10,18 @@ module.exports.getAllEmployees = async () => {
   }
 };
 
+module.exports.getAllEmployeesForAProject = async (project_id) => {
+  try {
+    const result = await pool.query(
+      EmployeeQuery.GET_ALL_EMPLOYEES_FOR_A_PROJECT,
+      [project_id]
+    );
+    return result.rows;
+  } catch (err) {
+    throw err;
+  }
+};
+
 module.exports.getEmployeeDetails = async (employee_id) => {
   try {
     const result = await pool.query(EmployeeQuery.GET_EMPLOYEE_DETAILS, [

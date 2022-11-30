@@ -10,6 +10,18 @@ module.exports.getAllPayments = async () => {
   }
 };
 
+module.exports.getAllPaymentsForAProject = async (project_id) => {
+  try {
+    const result = await pool.query(
+      PaymentQuery.GET_ALL_PAYMENTS_FOR_A_PROJECT,
+      [project_id]
+    );
+    return result.rows;
+  } catch (err) {
+    throw err;
+  }
+};
+
 module.exports.getPaymentDetails = async (payment_id) => {
   try {
     const result = await pool.query(PaymentQuery.GET_PAYMENT_DETAILS, [
