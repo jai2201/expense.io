@@ -50,11 +50,11 @@ function Sidebar(props) {
             image={require('../static/images/dummy.png')}
             title="Partners"
           />
-          {/* <MenuItem
-            to={APPLICATION_URLS.EMPLOYEE_PAGE}
+          <MenuItem
+            to={APPLICATION_URLS.VEHICLES_PAGE}
             image={require('../static/images/dummy.png')}
-            title="Employees"
-          /> */}
+            title="Vehicles"
+          />
           <MenuItem
             to={APPLICATION_URLS.USER_PAGE}
             image={require('../static/images/dummy.png')}
