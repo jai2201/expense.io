@@ -81,6 +81,8 @@ module.exports.POST_addExpense = async (httpRequest, httpResponse) => {
         httpRequest.body.expense.sgst,
         httpRequest.body.expense.igst,
         httpRequest.body.expense.total_tax,
+        httpRequest.body.expense.remarks,
+        httpRequest.body.expense.vehicle_registration_number,
         user_id,
       ];
     } else if (
@@ -104,6 +106,8 @@ module.exports.POST_addExpense = async (httpRequest, httpResponse) => {
         httpRequest.body.expense.sgst,
         httpRequest.body.expense.igst,
         httpRequest.body.expense.total_tax,
+        httpRequest.body.expense.remarks,
+        httpRequest.body.expense.vehicle_registration_number,
         user_id,
       ];
     } else {
@@ -124,6 +128,8 @@ module.exports.POST_addExpense = async (httpRequest, httpResponse) => {
         httpRequest.body.expense.sgst,
         httpRequest.body.expense.igst,
         httpRequest.body.expense.total_tax,
+        httpRequest.body.expense.remarks,
+        httpRequest.body.expense.vehicle_registration_number,
         user_id,
       ];
     }
@@ -165,6 +171,8 @@ module.exports.PUT_editExpense = async (httpRequest, httpResponse) => {
         httpRequest.body.expense.sgst,
         httpRequest.body.expense.igst,
         httpRequest.body.expense.total_tax,
+        httpRequest.body.expense.remarks,
+        httpRequest.body.expense.vehicle_registration_number,
         user_id,
       ];
     } else if (
@@ -189,6 +197,8 @@ module.exports.PUT_editExpense = async (httpRequest, httpResponse) => {
         httpRequest.body.expense.sgst,
         httpRequest.body.expense.igst,
         httpRequest.body.expense.total_tax,
+        httpRequest.body.expense.remarks,
+        httpRequest.body.expense.vehicle_registration_number,
         user_id,
       ];
     } else {
@@ -210,6 +220,8 @@ module.exports.PUT_editExpense = async (httpRequest, httpResponse) => {
         httpRequest.body.expense.sgst,
         httpRequest.body.expense.igst,
         httpRequest.body.expense.total_tax,
+        httpRequest.body.expense.remarks,
+        httpRequest.body.expense.vehicle_registration_number,
         user_id,
       ];
     }
@@ -219,6 +231,7 @@ module.exports.PUT_editExpense = async (httpRequest, httpResponse) => {
     const result = await ExpenseDao.editExpenseDetails(params);
     return _200(httpResponse, result);
   } catch (err) {
+    console.log(err);
     return _error(httpResponse, {
       type: 'generic',
       message: err.message,

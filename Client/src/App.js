@@ -23,6 +23,7 @@ import Payment from './components/payment';
 import './static/css/base.css';
 import Revenue from './components/revenue';
 import ProjectDetail from './components/projectDetail';
+import Vehicle from './components/vehicle';
 
 const App = () => {
   return (
@@ -47,16 +48,11 @@ const App = () => {
             path={APPLICATION_URLS.PROJECTS_PAGE}
             element={<Project />}
           />
-          {/* <Route
+          <Route
             exact="true"
-            path={APPLICATION_URLS.EMPLOYEE_PAGE}
-            element={<Employee />}
-          /> */}
-          {/* <Route
-            exact="true"
-            path={APPLICATION_URLS.EXPENSES_PAGE}
-            element={<Expense />}
-          /> */}
+            path={APPLICATION_URLS.VEHICLES_PAGE}
+            element={<Vehicle />}
+          />
           <Route
             exact="true"
             path={APPLICATION_URLS.PARTNER_PAGE}
@@ -67,16 +63,6 @@ const App = () => {
             path={APPLICATION_URLS.USER_PAGE}
             element={<User />}
           />
-          {/* <Route
-            exact="true"
-            path={APPLICATION_URLS.PAYMENT_PAGE}
-            element={<Payment />}
-          /> */}
-          {/* <Route
-            exact="true"
-            path={APPLICATION_URLS.REVENUE_PAGE}
-            element={<Revenue />}
-          /> */}
           <Route
             exact="true"
             path={APPLICATION_URLS.PROJECT_DETAILS_PAGE}

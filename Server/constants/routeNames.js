@@ -41,4 +41,11 @@ module.exports = Object.freeze({
   GET_ALL_PAYMENTS_FOR_A_PROJECT: '/get/payments/project',
   GET_ALL_REVENUES_FOR_A_SPECIFIC_PROJECT: '/get/revenues/project',
   GET_DASHBOARD_DETAILS: '/get/dashboard_details',
+  GET_VEHICLE_DETAILS: '/get/vehicle_details',
+  GET_ALL_VEHICLES: '/get/vehicles',
+  ADD_NEW_VEHICLE: '/post/vehicle',
+  EDIT_A_VEHICLE: '/put/vehicle',
+  DELETE_A_VEHICLE: '/delete/vehicle',
+  GET_ALL_EXPENSES_AND_REVENUES_OF_A_MONTH_WISE_FOR_A_PROJECT:
+    '/get/report/project/month',
 });

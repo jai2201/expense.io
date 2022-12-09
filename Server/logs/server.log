@@ -134,3 +134,14 @@ error: Nov-15-2022 07:41:26: 	GET: Failed to fetch all revenues for the project 
 error: Nov-15-2022 07:42:39: 	GET: Failed to fetch all revenues for the project : 99034834 | user_id: 1 | ReferenceError: DashboardDao is not defined
 error: Nov-15-2022 07:42:45: 	GET: Failed to fetch all revenues for the project : 99034834 | user_id: 1 | ReferenceError: DashboardDao is not defined
 error: Nov-15-2022 07:42:54: 	GET: Failed to fetch all revenues for the project : 99034834 | user_id: 1 | ReferenceError: DashboardDao is not defined
+error: Dec-09-2022 02:30:40: 	GET: Failed to get all expenses of a month for a project | user_id: 1 | project_id: undefined | TypeError: Cannot read properties of undefined (reading 'PR_WorkOrderNumber')
+error: Dec-09-2022 02:39:55: 	GET: Failed to get all expenses of a month for a project | user_id: 1 | project_id: 1 | TypeError: httpResponse.status(...) is not a function
+error: Dec-09-2022 02:40:12: 	GET: Failed to get all expenses of a month for a project | user_id: 1 | project_id: 1 | TypeError: httpResponse is not a function
+error: Dec-09-2022 02:46:19: 	GET: Failed to get all expenses of a month for a project | user_id: 1 | project_id: 1 | TypeError: mapOfListExpensesMonthWise.json is not a function
+error: Dec-09-2022 10:02:06: 	GET: Failed to get all expenses of a month for a project | user_id: 1 | project_id: 1 | TypeError: httpResponse.status(...).stringify is not a function
+error: Dec-09-2022 10:02:30: 	GET: Failed to get all expenses of a month for a project | user_id: 1 | project_id: 1 | ReferenceError: stringgify is not defined
+error: Dec-09-2022 10:02:36: 	GET: Failed to get all expenses of a month for a project | user_id: 1 | project_id: 1 | ReferenceError: stringify is not defined
+error: Dec-09-2022 10:15:24: 	GET: Failed to get all expenses of a month for a project | user_id: 1 | project_id: 1 | TypeError: response_data is not iterable
+error: Dec-09-2022 11:49:59: 	GET: Failed to get all expenses of a month for a project | user_id: 1 | project_id: 1 | error: column "Expense.E_ID" must appear in the GROUP BY clause or be used in an aggregate function
+error: Dec-09-2022 11:52:34: 	GET: Failed to get all expenses of a month for a project | user_id: 1 | project_id: 1 | error: column "Expense.E_ID" must appear in the GROUP BY clause or be used in an aggregate function
+error: Dec-09-2022 11:52:55: 	GET: Failed to get all expenses of a month for a project | user_id: 1 | project_id: 1 | error: column "Expense.E_ID" must appear in the GROUP BY clause or be used in an aggregate function

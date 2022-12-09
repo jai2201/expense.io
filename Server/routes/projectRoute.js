@@ -29,4 +29,12 @@ router.delete(routeNames.DELETE_A_PROJECT, [
   ProjectService.DELETE_deleteProject,
 ]);
 
+router.get(
+  routeNames.GET_ALL_EXPENSES_AND_REVENUES_OF_A_MONTH_WISE_FOR_A_PROJECT,
+  [
+    authValidator,
+    ProjectService.GET_getListOfAllExpensesAndRevenuesMonthWiseForAProject,
+  ]
+);
+
 module.exports = router;

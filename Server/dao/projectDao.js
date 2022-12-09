@@ -1,5 +1,5 @@
 const pool = require('../db/index');
-const { ProjectQuery, PartnerQuery } = require('../queries');
+const { ProjectQuery, DashboardQuery } = require('../queries');
 
 module.exports.getAllProjects = async () => {
   try {
@@ -48,6 +48,37 @@ module.exports.deleteProject = async (project_id) => {
       project_id,
     ]);
     return result.rows;
+  } catch (err) {
+    throw err;
+  }
+};
+
+module.exports.getExpensesForAMonthOfAProject = async (month, project_id) => {
+  try {
+    const result = await pool.query(
+      ProjectQuery.GET_ALL_EXPENSES_FOR_A_MONTH_OF_A_PROJECT,
+      [month, project_id]
+    );
+    return result.rows;
+  } catch (err) {
+    throw err;
+  }
+};
+
+module.exports.getRevenueSumForAMonthOfAProject = async (
+  month,
+  project_work_order_number
+) => {
+  try {
+    const result = await pool.query(
+      ProjectQuery.GET_ALL_REVENUES_SUM_FOR_A_MONTH_OF_A_PROJECT,
+      [project_work_order_number, month]
+    );
+    if (result.rows[0]['sum']) {
+      return result.rows[0]['sum'];
+    } else {
+      return 0;
+    }
   } catch (err) {
     throw err;
   }

@@ -15,12 +15,14 @@ import Expense from './expense';
 import Revenue from './revenue';
 import Payment from './payment';
 import Employee from './employee';
+import Chart from 'chart.js/auto';
+import { Bar } from 'react-chartjs-2';
 
 function ProjectDetail(props) {
   const params = useParams();
 
   const [projectDetails, setProjectDetails] = useState([]);
-  const [projectExpenses, setProjectExpenses] = useState([]);
+  const [projectGraphDetails, setProjectGraphDetails] = useState([]);
   const [projectPayments, setProjectPayments] = useState([]);
   const [projectReveneus, setProjectRevenues] = useState([]);
 
@@ -44,9 +46,151 @@ function ProjectDetail(props) {
       });
   };
 
+  const fetchProfitAndLossGraphDetails = () => {
+    axios
+      .get(BACKEND_URLS.GET_PROJECT_GRAPH_DETAILS, {
+        headers: {
+          token: localStorage.getItem('token'),
+        },
+        params: {
+          project_id: params.project_id,
+        },
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          setProjectGraphDetails(res.data.data);
+        }
+      });
+  };
+
   useEffect(() => {
     fetchProjectDetails();
+    fetchProfitAndLossGraphDetails();
   }, []);
+
+  const options = {
+    plugins: {
+      title: {
+        display: true,
+        text: 'Chart.js Bar Chart - Stacked',
+      },
+    },
+    responsive: true,
+    scales: {
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true,
+      },
+    },
+  };
+
+  const labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
+  const mapOfDatasets = new Map();
+  mapOfDatasets.set('Diesel Expenses', {
+    label: 'Diesel Expenses',
+    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    backgroundColor: '#FF6347',
+  });
+  mapOfDatasets.set('Insurance Expenses', {
+    label: 'Insurance Expenses',
+    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    backgroundColor: '#A52A2A',
+  });
+  mapOfDatasets.set('Project Expenses', {
+    label: 'Project Expenses',
+    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    backgroundColor: '#DC143C',
+  });
+  mapOfDatasets.set('Rent-Guest House', {
+    label: 'Rent-Guest House',
+    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    backgroundColor: '#E9967A',
+  });
+  mapOfDatasets.set('Business Promotion', {
+    label: 'Business Promotion',
+    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    backgroundColor: '#FFA07A',
+  });
+  mapOfDatasets.set('Repair & Maintenance', {
+    label: 'Repair & Maintenance',
+    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    backgroundColor: '#FF8C00',
+  });
+  mapOfDatasets.set('Site & Staff Expenses', {
+    label: 'Site & Staff Expenses',
+    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    backgroundColor: '#9ACD32',
+  });
+  mapOfDatasets.set('Electricity Expenses', {
+    label: 'Electricity Expenses',
+    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    backgroundColor: '#556B2F',
+  });
+  mapOfDatasets.set('Finance Cost', {
+    label: 'Finance Cost',
+    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    backgroundColor: '#6B8E23',
+  });
+  mapOfDatasets.set('Miscellaneous Expenses', {
+    label: 'Miscellaneous Expenses',
+    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    backgroundColor: '#008B8B',
+  });
+  mapOfDatasets.set('Printing & Stationery Expenses', {
+    label: 'Printing & Stationery Expenses',
+    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    backgroundColor: '#8B008B',
+  });
+  mapOfDatasets.set('Rates, Taxes & Fees', {
+    label: 'Rates, Taxes & Fees',
+    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    backgroundColor: '#BA55D3',
+  });
+  mapOfDatasets.set('Telephone & Mobile Expenses', {
+    label: 'Telephone & Mobile Expenses',
+    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    backgroundColor: 'rgb(75, 192, 192)',
+  });
+  mapOfDatasets.set('Revenues', {
+    label: 'Revenues',
+    data: [],
+    backgroundColor: 'rgb(255, 99, 132)',
+  });
+  if (projectGraphDetails !== []) {
+    const mapOfData = new Map(projectGraphDetails);
+    mapOfData.forEach((monthObject, index) => {
+      const revenueAmountOfMonth = monthObject['revenueAmount'];
+      const expenses = monthObject['expenses'];
+      expenses.forEach((each_expense) => {
+        const expenseObject = mapOfDatasets.get(each_expense['EC_Category']);
+        expenseObject.data[index - 1] = -each_expense['sum'];
+      });
+      const object = mapOfDatasets.get('Revenues');
+      object.data.push(revenueAmountOfMonth);
+    });
+  }
+  const dataValues = Array.from(mapOfDatasets.values());
+
+  const data = {
+    labels,
+    datasets: dataValues,
+  };
 
   return (
     <Fragment>
@@ -84,6 +228,8 @@ function ProjectDetail(props) {
                 Project Execution Start Date -
                 {projectDetails[0]['PR_ExecutionStartDate']}
               </h6>
+              <h2>Charts</h2>
+              <Bar options={options} data={data} />
               <Tabs>
                 <TabList>
                   <Tab>Expenses</Tab>

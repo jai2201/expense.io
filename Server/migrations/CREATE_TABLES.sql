@@ -94,52 +94,32 @@ CREATE TABLE "ExpenseCode"(
 	"EC_Code" VARCHAR(50) UNIQUE NOT NULL
 )
 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('OBB-100	Opening Bank Statement Balance', 'OBB-100') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('CCC-100	Collection from Customer', 'CCC-100') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('CTC-110	Cash Transfer Control', 'CTC-110') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('BTC-110	Bank Transfer Control', 'BTC-110') ON CONFLICT DO NOTHING;
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('CIO-120	Income from Others (FD / EMD / Retention/ IT Refund)', 'CIO-120') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('CIP-130	Investment from Promoters', 'CIP-130') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('ESW-200	Salaries / Wages', 'ESW-200') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('EIR-210	Imprest / Reimbursement', 'EIR-210') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('EME-220	Misc Expense', 'EME-220') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('EBP-230	Business Promotion', 'EBP-230') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('EPA-240	Employee Project Advance', 'EPA-240') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('EWM-250	Employee Welfare / Meal', 'EWM-250') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('LLT-300	Long Term Loan', 'LLT-300') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('LVL-310	Vehicle Loan', 'LVL-310') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('LPL-320	Property Loan', 'LPL-320') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('LIP-330	Interest Paid', 'LIP-330') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('LBC-340	Bank Charges', 'LBC-340') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('LCC-350	Credit Card Payment', 'LCC-350') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('ESI-400	Employees State Insurance (ESI)', 'ESI-400') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('EPO-410	Employees Provident Fund (PF)', 'EPO-410') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('GST-420	Goods and Services Tax (GST)', 'GST-420') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('TDS-430	Tax Deducted at Source (TDS)', 'TDS-430') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('LWF-440	Labour Welfare Fund (LWF)', 'LWF-440') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('PPP-500	Partner Payment', 'PPF-500') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('PBP-510	Borrow Payment', 'PBP-510') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('PPF-520	Professional Fees', 'PPF-520') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('PSI-530	Annual Subscription / Insurance', 'PSI-530') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('PCE-550	Computer Equipment', 'PCE-550') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('POE-560	Office Equipment', 'POE-560') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('PPM-570	Plant & Machinery', 'PPM-570') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('PCS-580	Courier Services', 'PCS-580') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('PPS-590	Printing & Stationary', 'PPS-590') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('PFP-600	Fuel / Petro Card Payment', 'PFP-600') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('PRM-610	Repair & Maintenance', 'PRM-610') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('RRT-620	Registration Charges / Road Tax', 'RRT-620') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('PTE-630	Tools & Equipment', 'PTE-630') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('RRP-700	Return to Promoters', 'RRP-700') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('RGR-800	Office / Guest House Rent', 'RGR-800') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('RGM-810	Office / Guest House Maintenance', 'RGM-810') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('REB-820	Office / Guest House Electricity Bill', 'REB-820') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('RIP-830	Internet Service Provider', 'RIP-830') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('RMT-840	Mobile / Telephone', 'RMT-840') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('RPM-850	Plant & Machinery Rental', 'RPM-850') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('OTF-900	Online Proceesing / Tender  Fees', 'OTF-900') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('EMD-910	Earnest Money Deposit', 'EMD-910') ON CONFLICT DO NOTHING; 
-INSERT INTO "ExpenseCode"("EC_Name", "EC_Code") VALUES('EFD-920	Earnest Fixed Deposit', 'EFD-920') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('EME-220	Misc Expense/Income', 'EME-220', 'Miscellaneous Expenses') ON CONFLICT DO NOTHING;
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('PSI-530	Annual Subscription / Insurance', 'PSI-530', 'Insurance Expenses') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('PPP-500	Partner Payment W/O TDS', 'PPP-500', 'Project Expenses') ON CONFLICT DO NOTHING;
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('OTF-900	Online Processing / Tender Fee', 'OTF-900', 'Project Expenses') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('RPM-850	Plant & Machinery Rental', 'RPM-850', 'Project Expenses') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('PBP-510	Borrow Payment', 'PBP-510', 'Project Expenses') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('RGM-810	Office / Guest House Maintenance', 'RGM-810', 'Rent-Guest House') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('PWT-500	Partner Payment With TDS', 'PWT-500', 'Project Expenses') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('RGR-800	Office / Guest House Rent', 'RGR-800', 'Rent-Guest House') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('PRM-610	Repair & Maintenance', 'PRM-610', 'Repair & Maintenance') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('ESO-200	Salaries / Wages (Off Roll)', 'ESO-200', 'Site & Staff Expenses') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('EWM-250	Employee Welfare / Meal', 'EPA-240', 'Site & Staff Expenses') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('EBP-230	Business Promotion', 'EBP-230', 'Business Promotion') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('REB-820	Office / Guest House Electricity Bill', 'REB-820', 'Electricity Expenses') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('LVL-310	Vehicle Loan', 'LVL-310', 'Finance Cost') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('RIP-830	Internet Service Provider', 'RIP-830', 'Miscellaneous Expenses') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('PPS-590	Printing & Stationary', 'PPS-590', 'Printing & Stationery Expenses') ON CONFLICT DO NOTHING;
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('PCS-580	Courier Services', 'PCS-580', 'Printing & Stationery Expenses') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('GST-420	Goods and Services Tax (GST)', 'GST-420', 'Rates, Taxes & Fees') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('RRT-620	Registration Charges / Road Tax', 'RRT-620', 'Rates, Taxes & Fees') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('TDS-430	Tax Deducted at Source (TDS)', 'TDS-430', 'Rates, Taxes & Fees') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('EPA-240	Employee Project Advance', 'EPA-240', 'Site & Staff Expenses') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('EIR-210	Imprest / Reimbursement', 'EIR-210', 'Site & Staff Expenses') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('ESW-200	Salaries / Wages (On Roll)', 'ESW-200', 'Site & Staff Expenses') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('RMT-840	Mobile / Telephone', 'RMT-840', 'Telephone & Mobile Expenses') ON CONFLICT DO NOTHING; 
+INSERT INTO "ExpenseCode"("EC_Name", "EC_Code", "EC_Category") VALUES('PFP-600	Fuel / Petro Card Payment', 'PFP-600', 'Diesel Expenses') ON CONFLICT DO NOTHING;
 
 CREATE TABLE "Expense"(
 	"E_ID" BIGSERIAL PRIMARY KEY,
@@ -159,6 +139,7 @@ CREATE TABLE "Expense"(
 	"E_IGST" bigint,
 	"E_TotalTax" bigint,
 	"E_CostCenter" VARCHAR (100),
+	"E_Remarks" varchar(200),
 	"E_CreatedBy" BIGSERIAL REFERENCES "User" ("U_ID") NOT NULL,
 	"E_CreatedOn" DATE NOT NULL,
 	"E_UpdatedBy" BIGSERIAL REFERENCES "User" ("U_ID") NOT NULL,

@@ -6,6 +6,7 @@ const EmployeeQuery = require('./employeeQuery');
 const PaymentQuery = require('./paymentQuery');
 const RevenueQuery = require('./revenueQuery');
 const DashboardQuery = require('./dashboardQuery');
+const VehicleQuery = require('./vehicleQuery');
 
 module.exports = {
   UserQuery,
@@ -16,4 +17,5 @@ module.exports = {
   PaymentQuery,
   RevenueQuery,
   DashboardQuery,
+  VehicleQuery,
 };

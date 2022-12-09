@@ -7,6 +7,7 @@ const ProjectRouter = require('./projectRoute');
 const PaymentRoute = require('./paymentRoute');
 const RevenueRoute = require('./revenueRoute');
 const DashboardRoute = require('./dashboardRoute');
+const VehicleRoute = require('./vehicleRoute');
 
 const init = (app) => {
   app.use('/api', AuthRouter);
@@ -18,6 +19,7 @@ const init = (app) => {
   app.use('/api', PaymentRoute);
   app.use('/api', RevenueRoute);
   app.use('/api', DashboardRoute);
+  app.use('/api', VehicleRoute);
 };
 
 module.exports = init;

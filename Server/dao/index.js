@@ -6,6 +6,7 @@ const EmployeeDao = require('./employeeDao');
 const PaymentDao = require('./paymentDao');
 const RevenueDao = require('./revenueDao');
 const DashboardDao = require('./dashboardDao');
+const VehicleDao = require('./vehicleDao');
 
 module.exports = {
   UserDao,
@@ -16,4 +17,5 @@ module.exports = {
   PaymentDao,
   RevenueDao,
   DashboardDao,
+  VehicleDao,
 };

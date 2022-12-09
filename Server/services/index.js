@@ -7,6 +7,7 @@ const PartnerService = require('./partnerService');
 const PaymentService = require('./paymentService');
 const RevenueService = require('./revenueService');
 const DashboardService = require('./dashboardService');
+const VehicleService = require('./vehicleService');
 
 module.exports = {
   UserService,
@@ -18,4 +19,5 @@ module.exports = {
   PaymentService,
   RevenueService,
   DashboardService,
+  VehicleService,
 };

@@ -114,7 +114,42 @@ module.exports.DELETE_deleteProject = async (httpRequest, httpResponse) => {
     return _200(httpResponse, result);
   } catch (err) {
     logger.error(
-      `DLETE: Failed to delete project | user_id: ${user_id} | project_id: ${httpRequest.query.project_id} | ${err}`
+      `DELETE: Failed to delete project | user_id: ${user_id} | project_id: ${httpRequest.query.project_id} | ${err}`
+    );
+    return _error(httpResponse, {
+      type: 'generic',
+      message: err.message,
+    });
+  }
+};
+
+module.exports.GET_getListOfAllExpensesAndRevenuesMonthWiseForAProject = async (
+  httpRequest,
+  httpResponse
+) => {
+  const { decoded } = httpRequest.headers;
+  const user_id = decoded.UserID;
+  const project_id = httpRequest.query.project_id;
+  try {
+    const project = await ProjectDao.getProjectDetails(project_id);
+    const mapOfListExpensesMonthWise = [];
+    for (let i = 1; i < 13; i++) {
+      const keyPair = {};
+      const listOfExpensesForAMonth =
+        await ProjectDao.getExpensesForAMonthOfAProject(i, project_id);
+      const revenuesAmountForAMonth =
+        await ProjectDao.getRevenueSumForAMonthOfAProject(
+          i,
+          project[0]['PR_WorkOrderNumber']
+        );
+      keyPair['expenses'] = listOfExpensesForAMonth;
+      keyPair['revenueAmount'] = revenuesAmountForAMonth;
+      mapOfListExpensesMonthWise.push([i, keyPair]);
+    }
+    return _200(httpResponse, mapOfListExpensesMonthWise);
+  } catch (err) {
+    logger.error(
+      `GET: Failed to get all expenses of a month for a project | user_id: ${user_id} | project_id: ${httpRequest.query.project_id} | ${err}`
     );
     return _error(httpResponse, {
       type: 'generic',

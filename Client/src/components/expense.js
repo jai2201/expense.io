@@ -66,6 +66,8 @@ function Expense({ projectID, ...props }) {
     expenseIGST: '',
     expenseTotalTax: '',
     selectedExpense: null,
+    expenseRemarks: '',
+    vehicleRegistrationNumber: '',
   });
 
   const [addModalShow, setAddModalShow] = useState(false);
@@ -147,6 +149,16 @@ function Expense({ projectID, ...props }) {
         accessor: 'E_TotalTax',
         filterable: true,
       },
+      {
+        Header: 'Expense Remarks',
+        accessor: 'E_Remarks',
+        filterable: true,
+      },
+      {
+        Header: 'Vehicle Registration Number',
+        accessor: 'E_V_RegistrationNumber',
+        filterable: true,
+      },
     ],
     []
   );
@@ -190,6 +202,7 @@ function Expense({ projectID, ...props }) {
       })
       .then((res) => {
         if (res.status === 200) {
+          console.log(res.data.data);
           props.set_all_expenses(res.data.data);
         }
       })
@@ -249,6 +262,9 @@ function Expense({ projectID, ...props }) {
               sgst: values.expenseSGST,
               igst: values.expenseIGST,
               total_tax: values.expenseTotalTax,
+              remarks: values.expenseRemarks,
+              vehicle_registration_number:
+                values.vehicleRegistrationNumber.replace(/ /g, ''),
             },
           },
           {
@@ -282,6 +298,8 @@ function Expense({ projectID, ...props }) {
               expenseIGST: '',
               expenseTotalTax: '',
               selectedExpense: null,
+              expenseRemarks: '',
+              vehicleRegistrationNumber: '',
             });
           }
         })
@@ -316,6 +334,8 @@ function Expense({ projectID, ...props }) {
       expenseIGST: expense['E_IGST'],
       expenseTotalTax: expense['E_TotalTax'],
       selectedExpense: expense,
+      expenseRemarks: expense['E_Remarks'],
+      vehicleRegistrationNumber: expense['E_V_RegistrationNumber'],
     });
     setEditModalShow(true);
   };
@@ -345,6 +365,9 @@ function Expense({ projectID, ...props }) {
             sgst: values.expenseSGST,
             igst: values.expenseIGST,
             total_tax: values.expenseTotalTax,
+            remarks: values.expenseRemarks,
+            vehicle_registration_number:
+              values.vehicleRegistrationNumber.replace(/ /g, ''),
           },
         },
         {
@@ -381,6 +404,8 @@ function Expense({ projectID, ...props }) {
             expenseIGST: '',
             expenseTotalTax: '',
             selectedExpense: null,
+            expenseRemarks: '',
+            vehicleRegistrationNumber: '',
           });
         }
       })
@@ -430,6 +455,8 @@ function Expense({ projectID, ...props }) {
             expenseIGST: '',
             expenseTotalTax: '',
             selectedExpense: null,
+            expenseRemarks: '',
+            vehicleRegistrationNumber: '',
           });
         }
       })
@@ -648,6 +675,26 @@ function Expense({ projectID, ...props }) {
                       <br />
                       <br />
                     </td>
+                    <td>
+                      <span>Remarks</span>
+                      <input
+                        type="text"
+                        value={values.expenseRemarks}
+                        onChange={handleChange('expenseRemarks')}
+                      />
+                      <br />
+                      <br />
+                    </td>
+                    <td>
+                      <span>Vehicle registraion number</span>
+                      <input
+                        type="text"
+                        value={values.vehicleRegistrationNumber}
+                        onChange={handleChange('vehicleRegistrationNumber')}
+                      />
+                      <br />
+                      <br />
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -852,6 +899,26 @@ function Expense({ projectID, ...props }) {
                       <br />
                       <br />
                     </td>
+                    <td>
+                      <span>Remarks</span>
+                      <input
+                        type="text"
+                        value={values.expenseRemarks}
+                        onChange={handleChange('expenseRemarks')}
+                      />
+                      <br />
+                      <br />
+                    </td>
+                    <td>
+                      <span>Vehicle registraion number</span>
+                      <input
+                        type="text"
+                        value={values.vehicleRegistrationNumber}
+                        onChange={handleChange('vehicleRegistrationNumber')}
+                      />
+                      <br />
+                      <br />
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -893,6 +960,8 @@ function Expense({ projectID, ...props }) {
                   expenseIGST: '',
                   expenseTotalTax: '',
                   selectedExpense: null,
+                  expenseRemarks: '',
+                  vehicleRegistrationNumber: '',
                 });
               }}
             >

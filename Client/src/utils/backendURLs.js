@@ -53,3 +53,11 @@ export const GET_ALL_REVENUES_FOR_A_SPECIFIC_PROJECT =
   'http://15.206.100.165:8080/api/get/revenues/project';
 export const DASHBOARD_DETAILS =
   'http://15.206.100.165:8080/api/get/dashboard_details';
+export const GET_PROJECT_GRAPH_DETAILS =
+  'http://15.206.100.165:8080/api/get/report/project/month';
+export const GET_ALL_VEHICLES = 'http://15.206.100.165:8080/api/get/vehicles';
+export const GET_VEHICLE_DETAILS =
+  'http://15.206.100.165:8080/api/get/vehicle_details';
+export const ADD_NEW_VEHICLE = 'http://15.206.100.165:8080/api/post/vehicle';
+export const EDIT_A_VEHICLE = 'http://15.206.100.165:8080/api/put/vehicle';
+export const DELETE_A_VEHICLE = 'http://15.206.100.165:8080/api/delete/vehicle';
