@@ -14,7 +14,7 @@ export const PROJECT_TYPE_MAPPING = {
   'Earth work': 2,
   Building: 3,
   Road: 4,
-  Pipeline: 5,
+  'Rural Water Supply': 5,
 };
 
 export const PARTNER_TYPES = ['PROPRIETOR', 'PRIVATE_LIMITED'];
@@ -63,7 +63,7 @@ export const PROJECT_TYPES = [
   'Earth work',
   'Building',
   'Road',
-  'Pipeline',
+  'Rural Water Supply',
 ];
 
 export const EXPENSE_CODES = [
