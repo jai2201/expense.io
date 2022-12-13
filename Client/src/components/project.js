@@ -284,9 +284,6 @@ function Project(props) {
       )
       .then((res) => {
         if (res.status === 200) {
-          toast.success(`Successfully edited the project details.`, {
-            autoClose: 6000,
-          });
           fetchAllProjects();
           setEditModalShow(false);
           setValues({
@@ -329,9 +326,6 @@ function Project(props) {
       })
       .then((res) => {
         if (res.status == 200) {
-          toast.success(`Successfully deleted the partner.`, {
-            autoClose: 6000,
-          });
           fetchAllProjects();
           setEditModalShow(false);
           setValues({
@@ -428,7 +422,7 @@ function Project(props) {
                       <br />
                     </td>
                     <td>
-                      <span>Partner Location</span>
+                      <span>Project Location</span>
                       <input
                         type="text"
                         value={values.projectLocation}
@@ -598,7 +592,7 @@ function Project(props) {
                       <br />
                     </td>
                     <td>
-                      <span>Partner Location</span>
+                      <span>Project Location</span>
                       <input
                         type="text"
                         value={values.projectLocation}

@@ -351,9 +351,6 @@ function Partner(props) {
       )
       .then((res) => {
         if (res.status === 200) {
-          toast.success(`Successfully edited the partner details.`, {
-            autoClose: 6000,
-          });
           fetchAllPartners();
           setEditModalShow(false);
           setValues({
@@ -402,9 +399,6 @@ function Partner(props) {
       })
       .then((res) => {
         if (res.status == 200) {
-          toast.success(`Successfully deleted the partner.`, {
-            autoClose: 6000,
-          });
           fetchAllPartners();
           setEditModalShow(false);
           setValues({

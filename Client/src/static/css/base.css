@@ -29,6 +29,7 @@
     min-height: -webkit-fill-available;
     font-family: 'Roboto Flex', sans-serif;
     margin: 0;
+    font-size: 12px;
   }
   
   * {
