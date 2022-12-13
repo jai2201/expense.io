@@ -93,6 +93,7 @@ export const EXPENSE_CODES = [
   'ESW-200	Salaries / Wages (On Roll)',
   'RMT-840	Mobile / Telephone',
   'PFP-600	Fuel / Petro Card Payment',
+  'EMD-910 Earnest Money (EMD) / Security Deposit (SD)',
 ];
 
 export const EXPENSE_CODES_MAPPING = {
@@ -122,6 +123,7 @@ export const EXPENSE_CODES_MAPPING = {
   'ESW-200	Salaries / Wages (On Roll)': 24,
   'RMT-840	Mobile / Telephone': 25,
   'PFP-600	Fuel / Petro Card Payment': 26,
+  'EMD-910 Earnest Money (EMD) / Security Deposit (SD)': 27,
 };
 
 export const EXPENSE_INTERVAL_TYPES = ['ACTUAL', 'RECURRING', 'ONE_TIME'];
