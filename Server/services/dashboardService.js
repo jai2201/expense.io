@@ -24,41 +24,50 @@ module.exports.GET_getDashboardDetails = async (httpRequest, httpResponse) => {
         await DashboardDao.getTotalAmountOfRevenueForASpecificWorkOrderNumber(
           listOfAllProjects[i]['PR_WorkOrderNumber']
         );
-      const expenses_for_the_project =
-        await ExpenseDao.getAllExpensesForAProject(
-          listOfAllProjects[i]['PR_ID']
-        );
-      const revenues_for_the_project =
-        await RevenueDao.getAllRevenuesForASpecificWorkOrderNumber(
-          listOfAllProjects[i]['PR_WorkOrderNumber']
-        );
-      const list_of_expense_invoice_numbers = _.pluck(
-        expenses_for_the_project,
-        'E_InvoiceNumber'
+      data['totalInflowPayment'] = await DashboardDao.getTypeOfPayment(
+        project_id,
+        'INFLOW'
       );
-      const list_of_customer_invoice_numbers = _.pluck(
-        revenues_for_the_project,
-        'R_CustomerInvoiceNumber'
+      data['totalOutflowPayment'] = await DashboardDao.getTypeOfPayment(
+        project_id,
+        'OUTFLOW'
       );
-      const list_of_invoice_numbers = list_of_expense_invoice_numbers.concat(
-        list_of_customer_invoice_numbers
-      );
-      data['totalMappedPayment'] =
-        await DashboardDao.getTotalPaymentAmountForAProject(
-          listOfAllProjects[i]['PR_ID'],
-          list_of_invoice_numbers,
-          true
-        );
-      data['totalUnmappedPayment'] =
-        await DashboardDao.getTotalPaymentAmountForAProject(
-          listOfAllProjects[i]['PR_ID'],
-          null,
-          false
-        );
+      // const expenses_for_the_project =
+      //   await ExpenseDao.getAllExpensesForAProject(
+      //     listOfAllProjects[i]['PR_ID']
+      //   );
+      // const revenues_for_the_project =
+      //   await RevenueDao.getAllRevenuesForASpecificWorkOrderNumber(
+      //     listOfAllProjects[i]['PR_WorkOrderNumber']
+      //   );
+      // const list_of_expense_invoice_numbers = _.pluck(
+      //   expenses_for_the_project,
+      //   'E_InvoiceNumber'
+      // );
+      // const list_of_customer_invoice_numbers = _.pluck(
+      //   revenues_for_the_project,
+      //   'R_CustomerInvoiceNumber'
+      // );
+      // const list_of_invoice_numbers = list_of_expense_invoice_numbers.concat(
+      //   list_of_customer_invoice_numbers
+      // );
+      // data['totalMappedPayment'] =
+      //   await DashboardDao.getTotalPaymentAmountForAProject(
+      //     listOfAllProjects[i]['PR_ID'],
+      //     list_of_invoice_numbers,
+      //     true
+      //   );
+      // data['totalUnmappedPayment'] =
+      //   await DashboardDao.getTotalPaymentAmountForAProject(
+      //     listOfAllProjects[i]['PR_ID'],
+      //     null,
+      //     false
+      //   );
       result.push(data);
     }
     return _200(httpResponse, result);
   } catch (err) {
+    console.log(err);
     return _error(httpResponse, {
       type: 'generic',
       message: err.message,

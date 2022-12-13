@@ -46,6 +46,7 @@ function Project(props) {
     projectWorkOrderDate: '',
     projectWorkOrderValidityYear: '',
     projectWorkOrderValidityMonth: '',
+    projectWorkExecutionStartDate: '',
     selectedProject: null,
   });
 
@@ -111,6 +112,11 @@ function Project(props) {
       {
         Header: 'Project Work Order Validity Year',
         accessor: 'PR_WorkOrderValidityYear',
+        filterable: true,
+      },
+      {
+        Header: 'Project Work Execution Start Date',
+        accessor: 'PR_ExecutionStartDateInFormat',
         filterable: true,
       },
     ],
@@ -191,6 +197,7 @@ function Project(props) {
               work_order_date: values.projectWorkOrderDate,
               work_order_validity_year: values.projectWorkOrderValidityYear,
               work_order_validity_month: values.projectWorkOrderValidityMonth,
+              execution_start_date: values.projectWorkExecutionStartDate,
             },
           },
           {
@@ -219,6 +226,7 @@ function Project(props) {
               projectWorkOrderDate: '',
               projectWorkOrderValidityYear: '',
               projectWorkOrderValidityMonth: '',
+              projectWorkExecutionStartDate: '',
               selectedProject: null,
             });
           }
@@ -248,6 +256,7 @@ function Project(props) {
       projectWorkOrderDate: project['PR_WorkOrderDateInFormat'],
       projectWorkOrderValidityYear: project['PR_WorkOrderValidityYear'],
       projectWorkOrderValidityMonth: project['PR_WorkOrderValidityMonth'],
+      projectWorkExecutionStartDate: project['PR_ExecutionStartDateInFormat'],
       selectedProject: project,
     });
     setEditModalShow(true);
@@ -274,6 +283,7 @@ function Project(props) {
             work_order_date: values.projectWorkOrderDate,
             work_order_validity_year: values.projectWorkOrderValidityYear,
             work_order_validity_month: values.projectWorkOrderValidityMonth,
+            execution_start_date: values.projectWorkExecutionStartDate,
           },
         },
         {
@@ -302,6 +312,7 @@ function Project(props) {
             projectWorkOrderDate: '',
             projectWorkOrderValidityYear: '',
             projectWorkOrderValidityMonth: '',
+            projectWorkExecutionStartDate: '',
             selectedProject: null,
           });
         }
@@ -344,6 +355,7 @@ function Project(props) {
             projectWorkOrderDate: '',
             projectWorkOrderValidityYear: '',
             projectWorkOrderValidityMonth: '',
+            projectWorkExecutionStartDate: '',
             selectedProject: null,
           });
         }
@@ -529,6 +541,16 @@ function Project(props) {
                       <br />
                       <br />
                     </td>
+                    <td>
+                      <span>Project Work Execution Start Date</span>
+                      <input
+                        type="date"
+                        value={values.projectWorkExecutionStartDate}
+                        onChange={handleChange('projectWorkExecutionStartDate')}
+                      />
+                      <br />
+                      <br />
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -699,6 +721,16 @@ function Project(props) {
                       <br />
                       <br />
                     </td>
+                    <td>
+                      <span>Project Work Execution Start Date</span>
+                      <input
+                        type="date"
+                        value={values.projectWorkExecutionStartDate}
+                        onChange={handleChange('projectWorkExecutionStartDate')}
+                      />
+                      <br />
+                      <br />
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -731,6 +763,7 @@ function Project(props) {
                   projectWorkOrderDate: '',
                   projectWorkOrderValidityYear: '',
                   projectWorkOrderValidityMonth: '',
+                  projectWorkExecutionStartDate: '',
                   selectedProject: null,
                 });
               }}

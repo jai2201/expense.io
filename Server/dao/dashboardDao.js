@@ -81,3 +81,15 @@ module.exports.getTotalPaymentAmountForAProject = async (
     throw err;
   }
 };
+
+module.exports.getTypeOfPayment = async (project_id, typeofPayment) => {
+  try {
+    const result = await pool.query(
+      DashboardQuery.GET_TYPE_OF_PAYMENT_FOR_A_PROJECT,
+      [project_id, typeofPayment]
+    );
+    return result.rows[0]['sum'];
+  } catch (err) {
+    throw err;
+  }
+};

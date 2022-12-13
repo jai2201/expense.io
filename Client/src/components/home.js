@@ -64,8 +64,8 @@ function Home(props) {
                 const labels = [
                   'Total Expense Amount',
                   'Total Revenue Amount',
-                  'Total Mapped Payment Amount',
-                  'Total Unmapped Payment Amount',
+                  'Total Inflow Payment Amount',
+                  'Total Outflow Payment Amount',
                 ];
                 const data = {
                   datasets: [
@@ -81,8 +81,8 @@ function Home(props) {
                       data: [
                         each_pie_chart_details['totalExpense'],
                         each_pie_chart_details['totalRevenue'],
-                        each_pie_chart_details['totalMappedPayment'],
-                        each_pie_chart_details['totalUnmappedPayment'],
+                        each_pie_chart_details['totalInflowPayment'],
+                        each_pie_chart_details['totalOutflowPayment'],
                       ],
                       hoverOffset: 4,
                     },

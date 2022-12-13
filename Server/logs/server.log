@@ -145,3 +145,5 @@ error: Dec-09-2022 10:15:24: 	GET: Failed to get all expenses of a month for a p
 error: Dec-09-2022 11:49:59: 	GET: Failed to get all expenses of a month for a project | user_id: 1 | project_id: 1 | error: column "Expense.E_ID" must appear in the GROUP BY clause or be used in an aggregate function
 error: Dec-09-2022 11:52:34: 	GET: Failed to get all expenses of a month for a project | user_id: 1 | project_id: 1 | error: column "Expense.E_ID" must appear in the GROUP BY clause or be used in an aggregate function
 error: Dec-09-2022 11:52:55: 	GET: Failed to get all expenses of a month for a project | user_id: 1 | project_id: 1 | error: column "Expense.E_ID" must appear in the GROUP BY clause or be used in an aggregate function
+info: Dec-13-2022 11:53:29: 	DELETE : Deleted Project successfully | user_id: 1 | project_id: 2
+info: Dec-13-2022 12:33:59: 	DELETE : Deleted Project successfully | user_id: 1 | project_id: 1

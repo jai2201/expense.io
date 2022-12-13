@@ -52,6 +52,7 @@ module.exports.POST_addProject = async (httpRequest, httpResponse) => {
       httpRequest.body.project.work_order_date,
       httpRequest.body.project.work_order_validity_year,
       httpRequest.body.project.work_order_validity_month,
+      httpRequest.body.project.execution_start_date,
       user_id,
     ];
     const params = {
@@ -86,6 +87,7 @@ module.exports.PUT_editProjectDetails = async (httpRequest, httpResponse) => {
       httpRequest.body.project.work_order_date,
       httpRequest.body.project.work_order_validity_year,
       httpRequest.body.project.work_order_validity_month,
+      httpRequest.body.project.execution_start_date,
       user_id,
     ];
     const params = {

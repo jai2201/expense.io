@@ -6,4 +6,5 @@ module.exports = Object.freeze({
   GET_TOTAL_PAYMENT_FOR_LIST_OF_INVOICE_NUMBERS: `SELECT SUM("P_TotalAmount") FROM "Payment" where "P_InvoiceNumber" = ANY($1);`,
   GET_TOTAL_MAPPED_PAYMENT_AMOUNT_FOR_LIST_OF_INVOICE_NUMBERS: `SELECT SUM("P_TotalAmount") FROM "Payment" where "P_InvoiceNumber" = ANY($1) AND "P_IsMappedOrUnmapped" = true;`,
   GET_TOTAL_UNMAPPED_PAYMENT_AMOUNT_FOR_LIST_OF_INVOICE_NUMBERS: `SELECT SUM("P_TotalAmount") FROM "Payment" where "P_PR_ID" = $1 AND "P_IsMappedOrUnmapped" = false;`,
+  GET_TYPE_OF_PAYMENT_FOR_A_PROJECT: `SELECT SUM("P_TotalAmount") FROM "Payment" where "P_PR_ID" = $1 AND "P_Type" = $2;`,
 });
