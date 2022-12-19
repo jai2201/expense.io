@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import * as actions from '../store/actions/actions';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Chart from 'chart.js/auto';
-import { Pie } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
 function Home(props) {
   const [dashboardDetails, setDashboardDetails] = useState([]);
@@ -61,40 +61,45 @@ function Home(props) {
           {dashboardDetails ? (
             <div className="pieCharts">
               {dashboardDetails.map((each_pie_chart_details) => {
-                const labels = [
-                  'Total Expense Amount',
-                  'Total Revenue Amount',
-                  'Total Inflow Payment Amount',
-                  'Total Outflow Payment Amount',
-                ];
                 const data = {
+                  labels: [
+                    'Total Expense Amount',
+                    'Total Revenue Amount',
+                    'Total Inflow Payment',
+                    'Total Outflow Payment',
+                  ],
                   datasets: [
                     {
-                      label: 'My First dataset',
+                      label: 'Amount',
                       backgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(54, 162, 235)',
-                        'rgb(255, 205, 86)',
-                        'rgb(0, 0, 0)',
+                        'rgb(60, 60, 60)',
+                        'rgb(180, 180, 180)',
+                        'rgb(128,0,0)',
+                        'rgb(100, 100, 100)',
                       ],
-                      borderWidth: 0,
+                      borderColor: [
+                        'rgb(60, 60, 60)',
+                        'rgb(180, 180, 180)',
+                        'rgb(128,0,0)',
+                        'rgb(100, 100, 100)',
+                      ],
+                      borderWidth: 1,
                       data: [
                         each_pie_chart_details['totalExpense'],
                         each_pie_chart_details['totalRevenue'],
                         each_pie_chart_details['totalInflowPayment'],
                         each_pie_chart_details['totalOutflowPayment'],
                       ],
-                      hoverOffset: 4,
+                      hoverOffSet: 4,
                     },
                   ],
-                  labels: labels,
                 };
                 return (
                   <div className="pieChart">
                     <h3>
                       {each_pie_chart_details['projectDetails']['PR_Name']}
                     </h3>
-                    <Pie data={data} />
+                    <Bar data={data} />
                   </div>
                 );
               })}

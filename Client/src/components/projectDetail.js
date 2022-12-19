@@ -197,39 +197,43 @@ function ProjectDetail(props) {
       <div className="application">
         <div className="selectTable">
           {projectDetails[0] ? (
-            <>
-              <h2>Project Name - {projectDetails[0]['PR_Name']}</h2>
-              <h6>Project Code - {projectDetails[0]['PR_Code']}</h6>
-              <h6>Project Type - {projectDetails[0]['PRT_Name']}</h6>
-              <h6>
-                Project Client Name - {projectDetails[0]['PR_ClientName']}
-              </h6>
-              <h6>
-                Project Concern Person Name -
-                {projectDetails[0]['PR_ConcernPersonName']}
-              </h6>
-              <h6>
-                Project Concern Person Number -
-                {projectDetails[0]['PR_ConcernPersonNumber']}
-              </h6>
-              <h6>
-                Project Work Order Number -
-                {projectDetails[0]['PR_WorkOrderNumber']}
-              </h6>
-              <h6>
-                Project Work Order Value -
-                {projectDetails[0]['PR_WorkOrderValue']}
-              </h6>
-              <h6>
-                Project Work Order Date -
-                {projectDetails[0]['PR_WorkOrderDateInFormat']}
-              </h6>
-              <h6>
-                Project Execution Start Date -
-                {projectDetails[0]['PR_ExecutionStartDate']}
-              </h6>
-              <h2>Charts</h2>
-              <Bar options={options} data={data} />
+            <div>
+              <div className="projectDetails">
+                <table>
+                  <thead>
+                    <tr className="tableHeading">
+                      <th>Project Name</th>
+                      <th>Project Code</th>
+                      <th>Project Type</th>
+                      <th>Project Client Name</th>
+                      <th>Project Concern Person Name</th>
+                      <th>Project Concern Person Number</th>
+                      <th>Project Work Order Value</th>
+                      <th>Project Work Order Date</th>
+                      <th>Project Execution Start Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{projectDetails[0]['PR_Name']}</td>
+                      <td>{projectDetails[0]['PR_Code']}</td>
+                      <td>{projectDetails[0]['PRT_Name']}</td>
+                      <td>{projectDetails[0]['PR_ClientName']}</td>
+                      <td>{projectDetails[0]['PR_ConcernPersonName']}</td>
+                      <td>{projectDetails[0]['PR_WorkOrderNumber']}</td>
+                      <td>{projectDetails[0]['PR_WorkOrderValue']}</td>
+                      <td>{projectDetails[0]['PR_WorkOrderDateInFormat']}</td>
+                      <td>{projectDetails[0]['PR_ExecutionStartDate']}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <center>
+                <h2>Charts</h2>
+                <div className="barChartForProjectDetails">
+                  <Bar options={options} data={data} />
+                </div>
+              </center>
               <Tabs>
                 <TabList>
                   <Tab>Expenses</Tab>
@@ -254,7 +258,7 @@ function ProjectDetail(props) {
                   <Employee projectID={projectDetails[0]['PR_ID']} />
                 </TabPanel>
               </Tabs>
-            </>
+            </div>
           ) : null}
         </div>
       </div>

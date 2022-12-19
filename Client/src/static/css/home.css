@@ -20,3 +20,12 @@
   max-width: 300px;
   max-height: 600px;
 }
+
+.barChartForProjectDetails {
+  max-width: 900px;
+  max-height: 900px;
+}
+
+.projectDetails {
+  text-align: left;
+}
